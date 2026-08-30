@@ -1,0 +1,33 @@
+/**
+ * Formatting helpers. Pure functions only — no domain knowledge, no fixtures.
+ */
+
+/** Fixture clock. Real deployments pass a real Date; this keeps demos stable. */
+export const NOW = new Date("2026-08-29T14:27:18");
+
+export const iso = (d) => new Date(d).toISOString();
+export const ago = (minutes) => iso(NOW.getTime() - minutes * 60000);
+export const clock = (minutes) =>
+  new Date(NOW.getTime() - minutes * 60000).toTimeString().slice(0, 5);
+
+export function relTime(isoStr) {
+  if (!isoStr) return "—";
+  const minutes = Math.round((NOW.getTime() - new Date(isoStr).getTime()) / 60000);
+  if (minutes < 60) return minutes + "m ago";
+  const hours = Math.round(minutes / 60);
+  if (hours < 48) return hours + "h ago";
+  return Math.round(hours / 24) + "d ago";
+}
+
+export function shortDate(isoStr) {
+  if (!isoStr) return "—";
+  return new Date(isoStr).toLocaleDateString("en-US", {
+    month: "short", day: "numeric", year: "numeric",
+  });
+}
+
+export const bytesToMb = (bytes) => (bytes / 1048576).toFixed(1) + " MB";
+
+/** Truncate a hash for display. Full hashes are only shown on request. */
+export const shortHash = (hash) =>
+  !hash ? "—" : hash.length <= 12 ? hash : hash.slice(0, 6) + "…" + hash.slice(-4);
