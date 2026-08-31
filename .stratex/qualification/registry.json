@@ -1,0 +1,2697 @@
+{
+  "evidence": {
+    "packages": [
+      {
+        "capturePackageId": "CP-012-1",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "captureSessionId": "CAP-012-1",
+        "attemptNumber": 1,
+        "createdAt": "2026-08-27T15:40:00.000Z",
+        "closedAt": "2026-08-27T15:50:00.000Z",
+        "operatorId": "OP-01",
+        "aircraftId": "AC-M4TD-01",
+        "sensorPackageId": "SP-RGB-IR-LID",
+        "status": "APPROVED",
+        "expectedArtifactTypes": [
+          "RGB_IMAGE",
+          "THERMAL_RJPEG",
+          "TELEMETRY_LOG"
+        ],
+        "receivedArtifactCount": 5,
+        "requiredArtifactCount": 3,
+        "coverageState": "COMPLETE",
+        "validationState": "APPROVED",
+        "ingestState": "COMPLETE",
+        "sourceMode": "FIXTURE",
+        "notes": null
+      },
+      {
+        "capturePackageId": "CP-015-1",
+        "propertyId": "SXP-004190",
+        "missionId": "M-2026-0829-015",
+        "captureSessionId": "CAP-015-1",
+        "attemptNumber": 1,
+        "createdAt": "2026-08-28T20:07:18.000Z",
+        "closedAt": "2026-08-28T20:17:18.000Z",
+        "operatorId": "OP-02",
+        "aircraftId": "AC-M4TD-02",
+        "sensorPackageId": "SP-RGB",
+        "status": "RECAPTURE_REQUIRED",
+        "expectedArtifactTypes": [
+          "RGB_IMAGE"
+        ],
+        "receivedArtifactCount": 2,
+        "requiredArtifactCount": 1,
+        "coverageState": "INCOMPLETE",
+        "validationState": "RECAPTURE_REQUIRED",
+        "ingestState": "COMPLETE",
+        "sourceMode": "FIXTURE",
+        "notes": "Rear roof plane, west elevation and chimney not captured."
+      },
+      {
+        "capturePackageId": "CP-015-2",
+        "propertyId": "SXP-004190",
+        "missionId": "M-2026-0829-015",
+        "captureSessionId": "CAP-015-2",
+        "attemptNumber": 2,
+        "createdAt": "2026-08-29T17:27:18.000Z",
+        "closedAt": null,
+        "operatorId": "OP-02",
+        "aircraftId": "AC-M4TD-02",
+        "sensorPackageId": "SP-RGB",
+        "status": "OPEN",
+        "expectedArtifactTypes": [
+          "RGB_IMAGE"
+        ],
+        "receivedArtifactCount": 0,
+        "requiredArtifactCount": 1,
+        "coverageState": "NOT_EVALUATED",
+        "validationState": "NOT_REVIEWED",
+        "ingestState": "NOT_STARTED",
+        "sourceMode": "FIXTURE",
+        "notes": "Recapture attempt for the missing surfaces."
+      },
+      {
+        "capturePackageId": "CP-016-1",
+        "propertyId": "SXP-004188",
+        "missionId": "M-2026-0829-016",
+        "captureSessionId": "CAP-016-1",
+        "attemptNumber": 1,
+        "createdAt": "2026-08-29T12:07:18.000Z",
+        "closedAt": "2026-08-29T12:12:18.000Z",
+        "operatorId": "OP-01",
+        "aircraftId": "AC-M4TD-01",
+        "sensorPackageId": "SP-RGB-IR",
+        "status": "APPROVED_WITH_WARNINGS",
+        "expectedArtifactTypes": [
+          "RGB_IMAGE",
+          "THERMAL_RJPEG"
+        ],
+        "receivedArtifactCount": 3,
+        "requiredArtifactCount": 2,
+        "coverageState": "COMPLETE_WITH_WARNINGS",
+        "validationState": "APPROVED_WITH_WARNINGS",
+        "ingestState": "COMPLETE",
+        "sourceMode": "FIXTURE",
+        "notes": null
+      }
+    ],
+    "assets": [
+      {
+        "evidenceId": "EA-90211",
+        "capturePackageId": "CP-012-1",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "captureSessionId": "CAP-012-1",
+        "sourceMode": "FIXTURE",
+        "hashAlgorithm": "SHA-256",
+        "contentHash": null,
+        "hashState": "NOT_COMPUTED_FIXTURE",
+        "hashVerifiedAt": null,
+        "ingestState": "COMPLETE",
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "ingestedAt": "2026-08-27T21:27:18.000Z",
+        "parentEvidenceId": null,
+        "origin": "ORIGINAL",
+        "artifactType": "RGB_IMAGE",
+        "thermalKind": null,
+        "mediaType": "image/jpeg",
+        "sensorType": "RGB",
+        "filename": "DJI_0412.JPG",
+        "originalFilename": "DJI_0412.JPG",
+        "extension": "JPG",
+        "byteSize": 12400000,
+        "capturedAt": "2026-08-27T13:22:00.000Z",
+        "deviceId": "AC-M4TD-01",
+        "aircraftId": "AC-M4TD-01",
+        "sensorId": "S-RGB-4",
+        "operatorId": "OP-01",
+        "location": {
+          "latitude": 38.0106,
+          "longitude": -84.4258,
+          "altitudeFt": 180
+        },
+        "pose": {
+          "yaw": 45,
+          "pitch": -30,
+          "roll": 0
+        },
+        "heading": 45,
+        "altitude": 180,
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-012-1/originals/EA-90211",
+        "storageTier": "ARCHIVE",
+        "immutabilityState": "IMMUTABLE",
+        "reviewState": "APPROVED",
+        "qualityState": "PASS",
+        "coverageState": "COMPLETE",
+        "truthClassification": null,
+        "metadata": {
+          "captureMode": "Nadir grid"
+        }
+      },
+      {
+        "evidenceId": "EA-90212",
+        "capturePackageId": "CP-012-1",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "captureSessionId": "CAP-012-1",
+        "sourceMode": "FIXTURE",
+        "hashAlgorithm": "SHA-256",
+        "contentHash": null,
+        "hashState": "NOT_COMPUTED_FIXTURE",
+        "hashVerifiedAt": null,
+        "ingestState": "COMPLETE",
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "ingestedAt": "2026-08-27T21:27:18.000Z",
+        "parentEvidenceId": null,
+        "origin": "ORIGINAL",
+        "artifactType": "THERMAL_RJPEG",
+        "thermalKind": "RADIOMETRIC_SOURCE",
+        "mediaType": "image/jpeg",
+        "sensorType": "THERMAL",
+        "filename": "DJI_0412_R.JPEG",
+        "originalFilename": "DJI_0412_R.JPEG",
+        "extension": "JPEG",
+        "byteSize": 3100000,
+        "capturedAt": "2026-08-27T13:22:01.000Z",
+        "deviceId": "AC-M4TD-01",
+        "aircraftId": "AC-M4TD-01",
+        "sensorId": "S-IR-4",
+        "operatorId": "OP-01",
+        "location": {
+          "latitude": 38.0106,
+          "longitude": -84.4258,
+          "altitudeFt": 180
+        },
+        "pose": {
+          "yaw": 45,
+          "pitch": -30,
+          "roll": 0
+        },
+        "heading": 45,
+        "altitude": 180,
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-012-1/originals/EA-90212",
+        "storageTier": "ARCHIVE",
+        "immutabilityState": "IMMUTABLE",
+        "reviewState": "APPROVED",
+        "qualityState": "PASS",
+        "coverageState": "COMPLETE",
+        "truthClassification": null,
+        "metadata": {
+          "radiometric": true,
+          "note": "Radiometric source. A rendered thermal picture is not equivalent to this."
+        }
+      },
+      {
+        "evidenceId": "EA-90213",
+        "capturePackageId": "CP-012-1",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "captureSessionId": "CAP-012-1",
+        "sourceMode": "FIXTURE",
+        "hashAlgorithm": "SHA-256",
+        "contentHash": null,
+        "hashState": "NOT_COMPUTED_FIXTURE",
+        "hashVerifiedAt": null,
+        "ingestState": "COMPLETE",
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "ingestedAt": "2026-08-27T21:27:18.000Z",
+        "parentEvidenceId": null,
+        "origin": "ORIGINAL",
+        "artifactType": "TELEMETRY_LOG",
+        "thermalKind": null,
+        "mediaType": "application/json",
+        "sensorType": null,
+        "filename": "flight_telemetry.json",
+        "originalFilename": "flight_telemetry.json",
+        "extension": "json",
+        "byteSize": 840000,
+        "capturedAt": "2026-08-27T15:35:00.000Z",
+        "deviceId": "AC-M4TD-01",
+        "aircraftId": "AC-M4TD-01",
+        "sensorId": null,
+        "operatorId": "OP-01",
+        "location": null,
+        "pose": null,
+        "heading": null,
+        "altitude": null,
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-012-1/originals/EA-90213",
+        "storageTier": "COLD",
+        "immutabilityState": "IMMUTABLE",
+        "reviewState": "APPROVED",
+        "qualityState": "PASS",
+        "coverageState": "NOT_EVALUATED",
+        "truthClassification": null,
+        "metadata": {
+          "frames": 4820,
+          "timeAlignmentState": "NOT_ALIGNED",
+          "alignmentNote": "Per-image telemetry alignment is not implemented."
+        }
+      },
+      {
+        "evidenceId": "EA-90260",
+        "capturePackageId": "CP-012-1",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "captureSessionId": "CAP-012-1",
+        "sourceMode": "FIXTURE",
+        "hashAlgorithm": "SHA-256",
+        "contentHash": null,
+        "hashState": "NOT_COMPUTED_FIXTURE",
+        "hashVerifiedAt": null,
+        "ingestState": "COMPLETE",
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "ingestedAt": "2026-08-27T21:27:18.000Z",
+        "parentEvidenceId": "EA-90212",
+        "origin": "DERIVED",
+        "artifactType": "THERMAL_RENDER",
+        "thermalKind": "RENDERED_THERMAL_IMAGE",
+        "mediaType": "image/png",
+        "sensorType": "THERMAL",
+        "filename": "DJI_0412_render.png",
+        "originalFilename": "DJI_0412_render.png",
+        "extension": "png",
+        "byteSize": 1800000,
+        "capturedAt": null,
+        "deviceId": "PROC-01",
+        "aircraftId": null,
+        "sensorId": null,
+        "operatorId": null,
+        "location": null,
+        "pose": null,
+        "heading": null,
+        "altitude": null,
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-012-1/derived/EA-90260",
+        "storageTier": "WARM",
+        "immutabilityState": "MUTABLE_METADATA",
+        "reviewState": "APPROVED",
+        "qualityState": "PASS",
+        "coverageState": "NOT_EVALUATED",
+        "truthClassification": "DERIVED",
+        "metadata": {
+          "processor": "THERMAL_RENDER",
+          "processorVersion": "1.4",
+          "palette": "ironbow",
+          "note": "A picture of temperature. Not radiometric data."
+        }
+      },
+      {
+        "evidenceId": "EA-90280",
+        "capturePackageId": "CP-012-1",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "captureSessionId": "CAP-012-1",
+        "sourceMode": "FIXTURE",
+        "hashAlgorithm": "SHA-256",
+        "contentHash": null,
+        "hashState": "NOT_COMPUTED_FIXTURE",
+        "hashVerifiedAt": null,
+        "ingestState": "COMPLETE",
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "ingestedAt": "2026-08-27T21:27:18.000Z",
+        "parentEvidenceId": "EA-90211",
+        "origin": "DERIVED",
+        "artifactType": "ORTHOMOSAIC",
+        "thermalKind": null,
+        "mediaType": "image/tiff",
+        "sensorType": null,
+        "filename": "ortho_roof.tif",
+        "originalFilename": "ortho_roof.tif",
+        "extension": "tif",
+        "byteSize": 84000000,
+        "capturedAt": null,
+        "deviceId": "PROC-01",
+        "aircraftId": null,
+        "sensorId": null,
+        "operatorId": null,
+        "location": null,
+        "pose": null,
+        "heading": null,
+        "altitude": null,
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-012-1/derived/EA-90280",
+        "storageTier": "WARM",
+        "immutabilityState": "MUTABLE_METADATA",
+        "reviewState": "APPROVED",
+        "qualityState": "PASS",
+        "coverageState": "NOT_EVALUATED",
+        "truthClassification": "DERIVED",
+        "metadata": {
+          "processor": "PHOTOGRAMMETRY",
+          "processorVersion": "2.4"
+        }
+      },
+      {
+        "evidenceId": "EA-15001",
+        "capturePackageId": "CP-015-1",
+        "propertyId": "SXP-004190",
+        "missionId": "M-2026-0829-015",
+        "captureSessionId": "CAP-015-1",
+        "sourceMode": "FIXTURE",
+        "hashAlgorithm": "SHA-256",
+        "contentHash": null,
+        "hashState": "NOT_COMPUTED_FIXTURE",
+        "hashVerifiedAt": null,
+        "ingestState": "COMPLETE",
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "ingestedAt": "2026-08-27T21:27:18.000Z",
+        "parentEvidenceId": null,
+        "origin": "ORIGINAL",
+        "artifactType": "RGB_IMAGE",
+        "thermalKind": null,
+        "mediaType": "image/jpeg",
+        "sensorType": "RGB",
+        "filename": "DJI_0088.JPG",
+        "originalFilename": "DJI_0088.JPG",
+        "extension": "JPG",
+        "byteSize": 11200000,
+        "capturedAt": "2026-08-28T19:27:18.000Z",
+        "deviceId": "AC-M4TD-02",
+        "aircraftId": "AC-M4TD-02",
+        "sensorId": "S-RGB-3",
+        "operatorId": "OP-02",
+        "location": {
+          "latitude": 38.2098,
+          "longitude": -84.5588,
+          "altitudeFt": 150
+        },
+        "pose": null,
+        "heading": 90,
+        "altitude": 150,
+        "storageReference": "properties/SXP-004190/missions/M-2026-0829-015/captures/CAP-015-1/originals/EA-15001",
+        "storageTier": "COLD",
+        "immutabilityState": "IMMUTABLE",
+        "reviewState": "RECAPTURE_REQUIRED",
+        "qualityState": "PASS",
+        "coverageState": "INCOMPLETE",
+        "truthClassification": null,
+        "metadata": {}
+      },
+      {
+        "evidenceId": "EA-15002",
+        "capturePackageId": "CP-015-1",
+        "propertyId": "SXP-004190",
+        "missionId": "M-2026-0829-015",
+        "captureSessionId": "CAP-015-1",
+        "sourceMode": "FIXTURE",
+        "hashAlgorithm": "SHA-256",
+        "contentHash": null,
+        "hashState": "NOT_COMPUTED_FIXTURE",
+        "hashVerifiedAt": null,
+        "ingestState": "COMPLETE",
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "ingestedAt": "2026-08-27T21:27:18.000Z",
+        "parentEvidenceId": null,
+        "origin": "ORIGINAL",
+        "artifactType": "RGB_IMAGE",
+        "thermalKind": null,
+        "mediaType": "image/jpeg",
+        "sensorType": "RGB",
+        "filename": "DJI_0091.JPG",
+        "originalFilename": "DJI_0091.JPG",
+        "extension": "JPG",
+        "byteSize": 10800000,
+        "capturedAt": "2026-08-28T19:32:18.000Z",
+        "deviceId": "AC-M4TD-02",
+        "aircraftId": "AC-M4TD-02",
+        "sensorId": "S-RGB-3",
+        "operatorId": "OP-02",
+        "location": null,
+        "pose": null,
+        "heading": null,
+        "altitude": null,
+        "storageReference": "properties/SXP-004190/missions/M-2026-0829-015/captures/CAP-015-1/originals/EA-15002",
+        "storageTier": "COLD",
+        "immutabilityState": "IMMUTABLE",
+        "reviewState": "APPROVED_WITH_WARNINGS",
+        "qualityState": "PASS_WITH_WARNINGS",
+        "coverageState": "INCOMPLETE",
+        "truthClassification": null,
+        "metadata": {
+          "warning": "Motion blur detected by human review"
+        }
+      },
+      {
+        "evidenceId": "EA-16001",
+        "capturePackageId": "CP-016-1",
+        "propertyId": "SXP-004188",
+        "missionId": "M-2026-0829-016",
+        "captureSessionId": "CAP-016-1",
+        "sourceMode": "FIXTURE",
+        "hashAlgorithm": "SHA-256",
+        "contentHash": null,
+        "hashState": "NOT_COMPUTED_FIXTURE",
+        "hashVerifiedAt": null,
+        "ingestState": "COMPLETE",
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "ingestedAt": "2026-08-27T21:27:18.000Z",
+        "parentEvidenceId": null,
+        "origin": "ORIGINAL",
+        "artifactType": "THERMAL_RJPEG",
+        "thermalKind": "RADIOMETRIC_SOURCE",
+        "mediaType": "image/jpeg",
+        "sensorType": "THERMAL",
+        "filename": "DJI_0031_R.JPEG",
+        "originalFilename": "DJI_0031_R.JPEG",
+        "extension": "JPEG",
+        "byteSize": 3050000,
+        "capturedAt": "2026-08-29T11:47:18.000Z",
+        "deviceId": "AC-M4TD-01",
+        "aircraftId": "AC-M4TD-01",
+        "sensorId": "S-IR-2",
+        "operatorId": "OP-01",
+        "location": null,
+        "pose": null,
+        "heading": null,
+        "altitude": null,
+        "storageReference": "properties/SXP-004188/missions/M-2026-0829-016/captures/CAP-016-1/originals/EA-16001",
+        "storageTier": "HOT",
+        "immutabilityState": "IMMUTABLE",
+        "reviewState": "NOT_REVIEWED",
+        "qualityState": "NOT_EVALUATED",
+        "coverageState": "NOT_EVALUATED",
+        "truthClassification": null,
+        "metadata": {}
+      },
+      {
+        "evidenceId": "EA-16002",
+        "capturePackageId": "CP-016-1",
+        "propertyId": "SXP-004188",
+        "missionId": "M-2026-0829-016",
+        "captureSessionId": "CAP-016-1",
+        "sourceMode": "FIXTURE",
+        "hashAlgorithm": "SHA-256",
+        "contentHash": null,
+        "hashState": "NOT_COMPUTED_FIXTURE",
+        "hashVerifiedAt": null,
+        "ingestState": "QUARANTINED",
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "ingestedAt": "2026-08-27T21:27:18.000Z",
+        "parentEvidenceId": null,
+        "origin": "ORIGINAL",
+        "artifactType": "RGB_IMAGE",
+        "thermalKind": null,
+        "mediaType": "image/jpeg",
+        "sensorType": "RGB",
+        "filename": "DJI_0044.JPG",
+        "originalFilename": "DJI_0044.JPG",
+        "extension": "JPG",
+        "byteSize": 240,
+        "capturedAt": "2026-08-29T11:49:18.000Z",
+        "deviceId": "AC-M4TD-01",
+        "aircraftId": "AC-M4TD-01",
+        "sensorId": "S-RGB-2",
+        "operatorId": "OP-01",
+        "location": null,
+        "pose": null,
+        "heading": null,
+        "altitude": null,
+        "storageReference": "properties/SXP-004188/missions/M-2026-0829-016/captures/CAP-016-1/originals/EA-16002",
+        "storageTier": "HOT",
+        "immutabilityState": "IMMUTABLE",
+        "reviewState": "QUARANTINED",
+        "quarantineReason": "File truncated on transfer — metadata present but content unreadable.",
+        "qualityState": "FAIL",
+        "coverageState": "NOT_EVALUATED",
+        "truthClassification": null,
+        "metadata": {}
+      },
+      {
+        "evidenceId": "EA-16003",
+        "capturePackageId": "CP-016-1",
+        "propertyId": "SXP-004188",
+        "missionId": "M-2026-0829-016",
+        "captureSessionId": "CAP-016-1",
+        "sourceMode": "FIXTURE",
+        "hashAlgorithm": "SHA-256",
+        "contentHash": null,
+        "hashState": "NOT_COMPUTED_FIXTURE",
+        "hashVerifiedAt": null,
+        "ingestState": "COMPLETE",
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "ingestedAt": "2026-08-27T21:27:18.000Z",
+        "parentEvidenceId": null,
+        "origin": "ORIGINAL",
+        "artifactType": "RGB_IMAGE",
+        "thermalKind": null,
+        "mediaType": "image/jpeg",
+        "sensorType": "RGB",
+        "filename": "DJI_0045.JPG",
+        "originalFilename": "DJI_0045.JPG",
+        "extension": "JPG",
+        "byteSize": 9400000,
+        "capturedAt": "2026-08-29T11:51:18.000Z",
+        "deviceId": "AC-M4TD-01",
+        "aircraftId": "AC-M4TD-01",
+        "sensorId": "S-RGB-2",
+        "operatorId": "OP-01",
+        "location": null,
+        "pose": null,
+        "heading": null,
+        "altitude": null,
+        "storageReference": "properties/SXP-004188/missions/M-2026-0829-016/captures/CAP-016-1/originals/EA-16003",
+        "storageTier": "ARCHIVE",
+        "immutabilityState": "IMMUTABLE",
+        "reviewState": "REJECTED",
+        "reviewReason": "Frame is of the neighbouring parcel, not this property.",
+        "qualityState": "FAIL",
+        "coverageState": "NOT_EVALUATED",
+        "truthClassification": null,
+        "metadata": {}
+      },
+      {
+        "evidenceId": "EA-0001",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "captureSessionId": "CAP-UNKNOWN",
+        "capturePackageId": null,
+        "parentEvidenceId": null,
+        "origin": "ORIGINAL",
+        "artifactType": "RGB_IMAGE",
+        "thermalKind": null,
+        "mediaType": "image/jpeg",
+        "sensorType": null,
+        "filename": "IMG_001.JPG",
+        "originalFilename": "IMG_001.JPG",
+        "extension": "JPG",
+        "byteSize": 5,
+        "capturedAt": null,
+        "ingestedAt": "2026-08-31T03:20:40.224Z",
+        "deviceId": null,
+        "aircraftId": "AC-M4TD-01",
+        "sensorId": null,
+        "operatorId": "OP-01",
+        "location": null,
+        "pose": null,
+        "heading": null,
+        "altitude": null,
+        "sourceMode": "LOCAL_IMPORT",
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-UNKNOWN/originals/EA-0001",
+        "storageTier": "ARCHIVE",
+        "hashAlgorithm": "SHA-256",
+        "contentHash": "8ed3f6ad685b959ead7022518e1af76cd816f8e8ec7ccdda1ed4018e8f2223f8",
+        "hashState": "COMPUTED",
+        "hashVerifiedAt": null,
+        "immutabilityState": "IMMUTABLE",
+        "ingestState": "COMPLETE",
+        "reviewState": "NOT_REVIEWED",
+        "qualityState": "NOT_EVALUATED",
+        "coverageState": "NOT_EVALUATED",
+        "truthClassification": null,
+        "metadata": {
+          "sourceType": "PUBLIC_QUALIFICATION_DATASET",
+          "license": "UNKNOWN",
+          "datasetName": "PROOF-013F-INGEST",
+          "datasetId": "RQD-0003",
+          "captureTimestamp": "UNKNOWN",
+          "cameraMake": "UNKNOWN",
+          "cameraModel": "UNKNOWN",
+          "lens": "UNKNOWN",
+          "latitude": "NOT_AVAILABLE",
+          "longitude": "NOT_AVAILABLE",
+          "altitude": "NOT_AVAILABLE",
+          "orientation": "UNKNOWN",
+          "exifPresent": false,
+          "rtkState": "NOT_AVAILABLE",
+          "crsState": "NOT_AVAILABLE",
+          "sourceProvenance": "LOCAL_DIRECTORY_IMPORT",
+          "fileHash": "8ed3f6ad685b959ead7022518e1af76cd816f8e8ec7ccdda1ed4018e8f2223f8"
+        },
+        "createdAt": "2026-08-31T03:20:40.224Z"
+      },
+      {
+        "evidenceId": "EA-0012",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "captureSessionId": "CAP-UNKNOWN",
+        "capturePackageId": null,
+        "parentEvidenceId": null,
+        "origin": "ORIGINAL",
+        "artifactType": "RGB_IMAGE",
+        "thermalKind": null,
+        "mediaType": "image/jpeg",
+        "sensorType": null,
+        "filename": "IMG_002.JPG",
+        "originalFilename": "IMG_002.JPG",
+        "extension": "JPG",
+        "byteSize": 4,
+        "capturedAt": null,
+        "ingestedAt": "2026-08-31T03:20:40.751Z",
+        "deviceId": null,
+        "aircraftId": "AC-M4TD-01",
+        "sensorId": null,
+        "operatorId": "OP-01",
+        "location": null,
+        "pose": null,
+        "heading": null,
+        "altitude": null,
+        "sourceMode": "LOCAL_IMPORT",
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-UNKNOWN/originals/EA-0012",
+        "storageTier": "ARCHIVE",
+        "hashAlgorithm": "SHA-256",
+        "contentHash": "f44e64e75f3948e9f73f8dfa94721c4ce8cbb4f265c4790c702b2d41cfbf2753",
+        "hashState": "COMPUTED",
+        "hashVerifiedAt": null,
+        "immutabilityState": "IMMUTABLE",
+        "ingestState": "COMPLETE",
+        "reviewState": "NOT_REVIEWED",
+        "qualityState": "NOT_EVALUATED",
+        "coverageState": "NOT_EVALUATED",
+        "truthClassification": null,
+        "metadata": {
+          "sourceType": "PUBLIC_QUALIFICATION_DATASET",
+          "license": "UNKNOWN",
+          "datasetName": "PROOF-013F-INGEST",
+          "datasetId": "RQD-0003",
+          "captureTimestamp": "UNKNOWN",
+          "cameraMake": "UNKNOWN",
+          "cameraModel": "UNKNOWN",
+          "lens": "UNKNOWN",
+          "latitude": "NOT_AVAILABLE",
+          "longitude": "NOT_AVAILABLE",
+          "altitude": "NOT_AVAILABLE",
+          "orientation": "UNKNOWN",
+          "exifPresent": false,
+          "rtkState": "NOT_AVAILABLE",
+          "crsState": "NOT_AVAILABLE",
+          "sourceProvenance": "LOCAL_DIRECTORY_IMPORT",
+          "fileHash": "f44e64e75f3948e9f73f8dfa94721c4ce8cbb4f265c4790c702b2d41cfbf2753"
+        },
+        "createdAt": "2026-08-31T03:20:40.751Z"
+      }
+    ],
+    "quality": [
+      {
+        "assessmentId": "EQ-0001",
+        "evidenceId": "EA-15002",
+        "propertyId": "SXP-004190",
+        "missionId": "M-2026-0829-015",
+        "qualityState": "PASS_WITH_WARNINGS",
+        "reviewedAt": "2026-08-28T22:27:18.000Z",
+        "reviewedBy": "u-001",
+        "sourceMode": "FIXTURE",
+        "notes": "Usable, but sharpness is marginal on the west frames.",
+        "checks": [
+          {
+            "code": "READABLE",
+            "label": "File readable",
+            "state": "PASS",
+            "source": "AUTOMATED"
+          },
+          {
+            "code": "METADATA",
+            "label": "Required metadata present",
+            "state": "PASS",
+            "source": "AUTOMATED"
+          },
+          {
+            "code": "BLUR",
+            "label": "Sharpness",
+            "state": "WARNING",
+            "source": "HUMAN",
+            "detail": "Motion blur on the west elevation frames."
+          },
+          {
+            "code": "EXPOSURE",
+            "label": "Exposure",
+            "state": "PASS",
+            "source": "HUMAN"
+          },
+          {
+            "code": "LOCATION",
+            "label": "Location present",
+            "state": "WARNING",
+            "source": "AUTOMATED",
+            "detail": "No GPS on this frame."
+          }
+        ]
+      },
+      {
+        "assessmentId": "EQ-0002",
+        "evidenceId": "EA-16002",
+        "propertyId": "SXP-004188",
+        "missionId": "M-2026-0829-016",
+        "qualityState": "FAIL",
+        "reviewedAt": "2026-08-29T11:57:18.000Z",
+        "reviewedBy": "u-001",
+        "sourceMode": "FIXTURE",
+        "notes": "Truncated file.",
+        "checks": [
+          {
+            "code": "READABLE",
+            "label": "File readable",
+            "state": "FAIL",
+            "source": "AUTOMATED",
+            "detail": "Byte size 240 — file is truncated."
+          },
+          {
+            "code": "CORRUPTION",
+            "label": "Corruption detection",
+            "state": "FAIL",
+            "source": "AUTOMATED"
+          }
+        ]
+      }
+    ],
+    "coverage": [
+      {
+        "assessmentId": "CA-0001",
+        "capturePackageId": "CP-012-1",
+        "missionId": "M-2026-0827-012",
+        "propertyId": "SXP-004182",
+        "requiredAreas": [
+          "North roof plane",
+          "South roof plane",
+          "East roof plane",
+          "West roof plane",
+          "Ridge",
+          "Valleys"
+        ],
+        "capturedAreas": [
+          "North roof plane",
+          "South roof plane",
+          "East roof plane",
+          "West roof plane",
+          "Ridge",
+          "Valleys"
+        ],
+        "missingAreas": [],
+        "coverageState": "COMPLETE",
+        "completionPercent": 100,
+        "sourceMode": "FIXTURE",
+        "reviewedBy": "u-001",
+        "reviewedAt": "2026-08-27T15:55:00.000Z"
+      },
+      {
+        "assessmentId": "CA-0002",
+        "capturePackageId": "CP-015-1",
+        "missionId": "M-2026-0829-015",
+        "propertyId": "SXP-004190",
+        "requiredAreas": [
+          "North elevation",
+          "South elevation",
+          "East elevation",
+          "West elevation",
+          "Roof planes",
+          "Site context"
+        ],
+        "capturedAreas": [
+          "North elevation",
+          "South elevation",
+          "East elevation"
+        ],
+        "missingAreas": [
+          "West elevation",
+          "Roof planes",
+          "Site context"
+        ],
+        "coverageState": "INCOMPLETE",
+        "completionPercent": 50,
+        "sourceMode": "FIXTURE",
+        "reviewedBy": "u-001",
+        "reviewedAt": "2026-08-28T20:17:18.000Z"
+      }
+    ],
+    "jobs": [
+      {
+        "processingJobId": "PJOB-0001",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "capturePackageId": "CP-012-1",
+        "processorType": "THERMAL_RENDER",
+        "processorVersion": "1.4",
+        "inputEvidenceIds": [
+          "EA-90212"
+        ],
+        "outputEvidenceIds": [
+          "EA-90260"
+        ],
+        "status": "COMPLETE",
+        "startedAt": "2026-08-27T16:00:00.000Z",
+        "completedAt": "2026-08-27T16:04:00.000Z",
+        "failureReason": null,
+        "sourceMode": "FIXTURE"
+      },
+      {
+        "processingJobId": "PJOB-0002",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "capturePackageId": "CP-012-1",
+        "processorType": "PHOTOGRAMMETRY",
+        "processorVersion": "2.4",
+        "inputEvidenceIds": [
+          "EA-90211"
+        ],
+        "outputEvidenceIds": [
+          "EA-90280"
+        ],
+        "status": "COMPLETE",
+        "startedAt": "2026-08-27T16:05:00.000Z",
+        "completedAt": "2026-08-27T16:48:00.000Z",
+        "failureReason": null,
+        "sourceMode": "FIXTURE"
+      },
+      {
+        "processingJobId": "PJOB-0003",
+        "propertyId": "SXP-004188",
+        "missionId": "M-2026-0829-016",
+        "capturePackageId": "CP-016-1",
+        "processorType": "PHOTOGRAMMETRY",
+        "processorVersion": "2.4",
+        "inputEvidenceIds": [
+          "EA-16001"
+        ],
+        "outputEvidenceIds": [],
+        "status": "QUEUED",
+        "startedAt": null,
+        "completedAt": null,
+        "failureReason": null,
+        "sourceMode": "FIXTURE"
+      },
+      {
+        "processingJobId": "PJOB-0004",
+        "propertyId": "SXP-004190",
+        "missionId": "M-2026-0829-015",
+        "capturePackageId": "CP-015-1",
+        "processorType": "ROOF_GEOMETRY",
+        "processorVersion": "1.1",
+        "inputEvidenceIds": [
+          "EA-15001"
+        ],
+        "outputEvidenceIds": [],
+        "status": "FAILED",
+        "startedAt": "2026-08-28T20:47:18.000Z",
+        "completedAt": "2026-08-28T20:49:18.000Z",
+        "failureReason": "Insufficient overlap — roof planes were not captured.",
+        "sourceMode": "FIXTURE"
+      }
+    ],
+    "custody": [
+      {
+        "custodyEventId": "CUS-0001",
+        "evidenceId": "EA-90211",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "OP-01",
+        "actorType": "OPERATOR",
+        "action": "CAPTURED",
+        "timestamp": "2026-08-27T13:22:00.000Z",
+        "sourceSystem": "field.capture",
+        "storageReference": null,
+        "priorHash": null,
+        "currentHash": null,
+        "notes": null
+      },
+      {
+        "custodyEventId": "CUS-0002",
+        "evidenceId": "EA-90211",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "action": "RECEIVED",
+        "timestamp": "2026-08-27T15:45:00.000Z",
+        "sourceSystem": "evidence.ingest",
+        "storageReference": null,
+        "priorHash": null,
+        "currentHash": null,
+        "notes": null
+      },
+      {
+        "custodyEventId": "CUS-0003",
+        "evidenceId": "EA-90211",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "action": "STORED",
+        "timestamp": "2026-08-27T15:46:00.000Z",
+        "sourceSystem": "evidence.vault",
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-012-1/originals/EA-90211",
+        "priorHash": null,
+        "currentHash": null,
+        "notes": "Fixture record — no bytes materialized."
+      },
+      {
+        "custodyEventId": "CUS-0004",
+        "evidenceId": "EA-90211",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "u-001",
+        "actorType": "OPERATOR",
+        "action": "REVIEWED",
+        "timestamp": "2026-08-27T17:10:00.000Z",
+        "sourceSystem": "evidence.review",
+        "storageReference": null,
+        "priorHash": null,
+        "currentHash": null,
+        "notes": "APPROVED"
+      },
+      {
+        "custodyEventId": "CUS-0005",
+        "evidenceId": "EA-90211",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "action": "ARCHIVED",
+        "timestamp": "2026-08-28T06:00:00.000Z",
+        "sourceSystem": "evidence.lifecycle",
+        "storageReference": null,
+        "priorHash": null,
+        "currentHash": null,
+        "notes": "Moved to ARCHIVE tier. Archived is not deleted."
+      },
+      {
+        "custodyEventId": "CUS-0002",
+        "evidenceId": "EA-0001",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "action": "RECEIVED",
+        "timestamp": "2026-08-31T03:20:40.485Z",
+        "sourceSystem": "evidence.vault",
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-UNKNOWN/originals/EA-0001",
+        "priorHash": null,
+        "currentHash": null,
+        "notes": null
+      },
+      {
+        "custodyEventId": "CUS-0003",
+        "evidenceId": "EA-0001",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "action": "HASHED",
+        "timestamp": "2026-08-31T03:20:40.485Z",
+        "sourceSystem": "evidence.vault",
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-UNKNOWN/originals/EA-0001",
+        "priorHash": null,
+        "currentHash": "8ed3f6ad685b959ead7022518e1af76cd816f8e8ec7ccdda1ed4018e8f2223f8",
+        "notes": null
+      },
+      {
+        "custodyEventId": "CUS-0006",
+        "evidenceId": "EA-0001",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "action": "STORED",
+        "timestamp": "2026-08-31T03:20:40.485Z",
+        "sourceSystem": "evidence.vault",
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-UNKNOWN/originals/EA-0001",
+        "priorHash": null,
+        "currentHash": null,
+        "notes": null
+      },
+      {
+        "custodyEventId": "CUS-0007",
+        "evidenceId": "EA-0001",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "action": "INGESTED",
+        "timestamp": "2026-08-31T03:20:40.485Z",
+        "sourceSystem": "evidence.vault",
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-UNKNOWN/originals/EA-0001",
+        "priorHash": null,
+        "currentHash": null,
+        "notes": null
+      },
+      {
+        "custodyEventId": "CUS-0013",
+        "evidenceId": "EA-0012",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "action": "RECEIVED",
+        "timestamp": "2026-08-31T03:20:41.012Z",
+        "sourceSystem": "evidence.vault",
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-UNKNOWN/originals/EA-0012",
+        "priorHash": null,
+        "currentHash": null,
+        "notes": null
+      },
+      {
+        "custodyEventId": "CUS-0014",
+        "evidenceId": "EA-0012",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "action": "HASHED",
+        "timestamp": "2026-08-31T03:20:41.012Z",
+        "sourceSystem": "evidence.vault",
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-UNKNOWN/originals/EA-0012",
+        "priorHash": null,
+        "currentHash": "f44e64e75f3948e9f73f8dfa94721c4ce8cbb4f265c4790c702b2d41cfbf2753",
+        "notes": null
+      },
+      {
+        "custodyEventId": "CUS-0017",
+        "evidenceId": "EA-0012",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "action": "STORED",
+        "timestamp": "2026-08-31T03:20:41.012Z",
+        "sourceSystem": "evidence.vault",
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-UNKNOWN/originals/EA-0012",
+        "priorHash": null,
+        "currentHash": null,
+        "notes": null
+      },
+      {
+        "custodyEventId": "CUS-0018",
+        "evidenceId": "EA-0012",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "action": "INGESTED",
+        "timestamp": "2026-08-31T03:20:41.012Z",
+        "sourceSystem": "evidence.vault",
+        "storageReference": "properties/SXP-004182/missions/M-2026-0827-012/captures/CAP-UNKNOWN/originals/EA-0012",
+        "priorHash": null,
+        "currentHash": null,
+        "notes": null
+      }
+    ],
+    "manifests": [],
+    "events": [
+      {
+        "eventId": "EVE-0004",
+        "type": "EVIDENCE_HASHED",
+        "at": "2026-08-31T03:20:40.485Z",
+        "evidenceId": "EA-0001",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "reason": null
+      },
+      {
+        "eventId": "EVE-0008",
+        "type": "EVIDENCE_RECEIVED",
+        "at": "2026-08-31T03:20:40.485Z",
+        "evidenceId": "EA-0001",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "reason": null
+      },
+      {
+        "eventId": "EVE-0010",
+        "type": "EVIDENCE_INGESTED",
+        "at": "2026-08-31T03:20:40.485Z",
+        "evidenceId": "EA-0001",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "reason": null
+      },
+      {
+        "eventId": "EVE-0015",
+        "type": "EVIDENCE_HASHED",
+        "at": "2026-08-31T03:20:41.012Z",
+        "evidenceId": "EA-0012",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "reason": null
+      },
+      {
+        "eventId": "EVE-0019",
+        "type": "EVIDENCE_RECEIVED",
+        "at": "2026-08-31T03:20:41.012Z",
+        "evidenceId": "EA-0012",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "reason": null
+      },
+      {
+        "eventId": "EVE-0021",
+        "type": "EVIDENCE_INGESTED",
+        "at": "2026-08-31T03:20:41.012Z",
+        "evidenceId": "EA-0012",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "actor": "system",
+        "reason": null
+      }
+    ],
+    "audit": [
+      {
+        "auditId": "EVA-0005",
+        "at": "2026-08-31T03:20:40.485Z",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "domain": "EVIDENCE",
+        "action": "EVIDENCE_HASHED",
+        "objectType": "EvidenceAsset",
+        "objectId": "EA-0001",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "previousState": null,
+        "newState": null,
+        "reason": null,
+        "sourceSystem": "evidence.vault"
+      },
+      {
+        "auditId": "EVA-0009",
+        "at": "2026-08-31T03:20:40.485Z",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "domain": "EVIDENCE",
+        "action": "EVIDENCE_RECEIVED",
+        "objectType": "EvidenceAsset",
+        "objectId": "EA-0001",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "previousState": null,
+        "newState": null,
+        "reason": null,
+        "sourceSystem": "evidence.vault"
+      },
+      {
+        "auditId": "EVA-0011",
+        "at": "2026-08-31T03:20:40.485Z",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "domain": "EVIDENCE",
+        "action": "EVIDENCE_INGESTED",
+        "objectType": "EvidenceAsset",
+        "objectId": "EA-0001",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "previousState": null,
+        "newState": "COMPLETE",
+        "reason": null,
+        "sourceSystem": "evidence.vault"
+      },
+      {
+        "auditId": "EVA-0016",
+        "at": "2026-08-31T03:20:41.012Z",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "domain": "EVIDENCE",
+        "action": "EVIDENCE_HASHED",
+        "objectType": "EvidenceAsset",
+        "objectId": "EA-0012",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "previousState": null,
+        "newState": null,
+        "reason": null,
+        "sourceSystem": "evidence.vault"
+      },
+      {
+        "auditId": "EVA-0020",
+        "at": "2026-08-31T03:20:41.012Z",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "domain": "EVIDENCE",
+        "action": "EVIDENCE_RECEIVED",
+        "objectType": "EvidenceAsset",
+        "objectId": "EA-0012",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "previousState": null,
+        "newState": null,
+        "reason": null,
+        "sourceSystem": "evidence.vault"
+      },
+      {
+        "auditId": "EVA-0022",
+        "at": "2026-08-31T03:20:41.012Z",
+        "actor": "system",
+        "actorType": "SYSTEM",
+        "domain": "EVIDENCE",
+        "action": "EVIDENCE_INGESTED",
+        "objectType": "EvidenceAsset",
+        "objectId": "EA-0012",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "previousState": null,
+        "newState": "COMPLETE",
+        "reason": null,
+        "sourceSystem": "evidence.vault"
+      }
+    ]
+  },
+  "reality": {
+    "models": [
+      {
+        "propertyRealityId": "PR-004182",
+        "propertyId": "SXP-004182",
+        "currentVersionId": "TWV-A182-2",
+        "status": "ACTIVE",
+        "createdAt": "2026-02-11T00:00:00.000Z",
+        "updatedAt": "2026-08-29T17:59:18.000Z",
+        "availableTwinTypes": [
+          "TWIN_TYPE_A",
+          "TWIN_TYPE_B"
+        ],
+        "latestValidatedMissionId": "M-2026-0827-012",
+        "latestEvidenceManifestId": "CXM-0001",
+        "currentPassportRevisionId": "r14",
+        "overallQualityState": "PASS",
+        "overallCompletenessState": "COMPLETE",
+        "processingState": "COMPLETE",
+        "reviewState": "APPROVED"
+      },
+      {
+        "propertyRealityId": "PR-004179",
+        "propertyId": "SXP-004179",
+        "currentVersionId": "TWV-C179-1",
+        "status": "ACTIVE",
+        "createdAt": "2026-01-04T00:00:00.000Z",
+        "updatedAt": "2026-08-29T13:27:18.000Z",
+        "availableTwinTypes": [
+          "TWIN_TYPE_C"
+        ],
+        "latestValidatedMissionId": "M-2026-0829-017",
+        "latestEvidenceManifestId": null,
+        "currentPassportRevisionId": "r09",
+        "overallQualityState": "PASS_WITH_WARNINGS",
+        "overallCompletenessState": "COMPLETE_WITH_WARNINGS",
+        "processingState": "COMPLETE",
+        "reviewState": "APPROVED_WITH_WARNINGS"
+      },
+      {
+        "propertyRealityId": "PR-004188",
+        "propertyId": "SXP-004188",
+        "currentVersionId": null,
+        "status": "PROCESSING",
+        "createdAt": "2026-08-29T12:07:18.000Z",
+        "updatedAt": "2026-08-29T17:57:18.000Z",
+        "availableTwinTypes": [
+          "TWIN_TYPE_B"
+        ],
+        "latestValidatedMissionId": "M-2026-0829-016",
+        "latestEvidenceManifestId": null,
+        "currentPassportRevisionId": null,
+        "overallQualityState": "NOT_EVALUATED",
+        "overallCompletenessState": "PARTIAL",
+        "processingState": "RUNNING",
+        "reviewState": "REVIEW_REQUIRED"
+      },
+      {
+        "propertyRealityId": "PR-004190",
+        "propertyId": "SXP-004190",
+        "currentVersionId": null,
+        "status": "FAILED",
+        "createdAt": "2026-08-28T20:47:18.000Z",
+        "updatedAt": "2026-08-28T20:57:18.000Z",
+        "availableTwinTypes": [],
+        "latestValidatedMissionId": null,
+        "latestEvidenceManifestId": null,
+        "currentPassportRevisionId": null,
+        "overallQualityState": "FAIL",
+        "overallCompletenessState": "INCOMPLETE",
+        "processingState": "FAILED",
+        "reviewState": "NOT_REVIEWED"
+      },
+      {
+        "propertyRealityId": "PR-004191",
+        "propertyId": "SXP-004191",
+        "currentVersionId": null,
+        "status": "NO_REALITY",
+        "createdAt": "2026-08-29T17:27:18.000Z",
+        "updatedAt": "2026-08-29T17:27:18.000Z",
+        "availableTwinTypes": [],
+        "latestValidatedMissionId": null,
+        "latestEvidenceManifestId": null,
+        "currentPassportRevisionId": null,
+        "overallQualityState": "NOT_EVALUATED",
+        "overallCompletenessState": "UNKNOWN",
+        "processingState": "NOT_STARTED",
+        "reviewState": "NOT_REVIEWED"
+      }
+    ],
+    "versions": [
+      {
+        "propertyRealityId": "PR-004182",
+        "sourceProcessingJobIds": [],
+        "approvedAt": "2026-02-12T00:00:00.000Z",
+        "approvedBy": "u-001",
+        "supersedesTwinVersionId": null,
+        "supersededByTwinVersionId": "TWV-A182-2",
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "originReference": "Property centroid (fixture)",
+        "bounds": null,
+        "unitSystem": "IMPERIAL",
+        "geometryArtifactIds": [],
+        "textureArtifactIds": [],
+        "thermalArtifactIds": [],
+        "measurementSetIds": [],
+        "layerSetId": "LS-A182-1",
+        "passportRevisionId": "r09",
+        "sourceMode": "FIXTURE",
+        "notes": null,
+        "twinVersionId": "TWV-A182-1",
+        "propertyId": "SXP-004182",
+        "twinType": "TWIN_TYPE_A",
+        "versionNumber": 1,
+        "versionLabel": "V1",
+        "status": "SUPERSEDED",
+        "sourceMissionIds": [
+          "M-2026-0827-012"
+        ],
+        "sourceCapturePackageIds": [
+          "CP-012-1"
+        ],
+        "sourceEvidenceIds": [
+          "EA-90211"
+        ],
+        "createdAt": "2026-02-11T00:00:00.000Z",
+        "createdBy": "u-001",
+        "qualityState": "PASS",
+        "completenessState": "COMPLETE"
+      },
+      {
+        "propertyRealityId": "PR-004182",
+        "sourceProcessingJobIds": [],
+        "approvedAt": "2026-08-28T00:00:00.000Z",
+        "approvedBy": "u-001",
+        "supersedesTwinVersionId": "TWV-A182-1",
+        "supersededByTwinVersionId": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "originReference": "Property centroid (fixture)",
+        "bounds": null,
+        "unitSystem": "IMPERIAL",
+        "geometryArtifactIds": [],
+        "textureArtifactIds": [],
+        "thermalArtifactIds": [],
+        "measurementSetIds": [
+          "TMS-A182-2"
+        ],
+        "layerSetId": "LS-A182-2",
+        "passportRevisionId": "r14",
+        "sourceMode": "FIXTURE",
+        "notes": null,
+        "twinVersionId": "TWV-A182-2",
+        "propertyId": "SXP-004182",
+        "twinType": "TWIN_TYPE_A",
+        "versionNumber": 2,
+        "versionLabel": "V2",
+        "status": "APPROVED",
+        "sourceMissionIds": [
+          "M-2026-0827-012"
+        ],
+        "sourceCapturePackageIds": [
+          "CP-012-1"
+        ],
+        "sourceEvidenceIds": [
+          "EA-90211",
+          "EA-90212"
+        ],
+        "createdAt": "2026-08-27T00:00:00.000Z",
+        "createdBy": "u-001",
+        "qualityState": "PASS",
+        "completenessState": "COMPLETE"
+      },
+      {
+        "propertyRealityId": "PR-004182",
+        "sourceProcessingJobIds": [],
+        "approvedAt": "2026-08-28T00:00:00.000Z",
+        "approvedBy": "u-001",
+        "supersedesTwinVersionId": null,
+        "supersededByTwinVersionId": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "originReference": "Property centroid (fixture)",
+        "bounds": null,
+        "unitSystem": "IMPERIAL",
+        "geometryArtifactIds": [],
+        "textureArtifactIds": [],
+        "thermalArtifactIds": [],
+        "measurementSetIds": [],
+        "layerSetId": "LS-B182-1",
+        "passportRevisionId": "r14",
+        "sourceMode": "FIXTURE",
+        "notes": "Thermal alignment partial on the north plane.",
+        "twinVersionId": "TWV-B182-1",
+        "propertyId": "SXP-004182",
+        "twinType": "TWIN_TYPE_B",
+        "versionNumber": 1,
+        "versionLabel": "V1",
+        "status": "APPROVED_WITH_WARNINGS",
+        "sourceMissionIds": [
+          "M-2026-0827-012"
+        ],
+        "sourceCapturePackageIds": [
+          "CP-012-1"
+        ],
+        "sourceEvidenceIds": [
+          "EA-90212"
+        ],
+        "createdAt": "2026-08-27T00:00:00.000Z",
+        "createdBy": "u-001",
+        "qualityState": "PASS_WITH_WARNINGS",
+        "completenessState": "COMPLETE_WITH_WARNINGS"
+      },
+      {
+        "propertyRealityId": "PR-004179",
+        "sourceProcessingJobIds": [],
+        "approvedAt": "2026-08-29T00:00:00.000Z",
+        "approvedBy": "u-001",
+        "supersedesTwinVersionId": null,
+        "supersededByTwinVersionId": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "originReference": "Property centroid (fixture)",
+        "bounds": null,
+        "unitSystem": "IMPERIAL",
+        "geometryArtifactIds": [],
+        "textureArtifactIds": [],
+        "thermalArtifactIds": [],
+        "measurementSetIds": [],
+        "layerSetId": "LS-C179-1",
+        "passportRevisionId": "r09",
+        "sourceMode": "FIXTURE",
+        "notes": null,
+        "twinVersionId": "TWV-C179-1",
+        "propertyId": "SXP-004179",
+        "twinType": "TWIN_TYPE_C",
+        "versionNumber": 1,
+        "versionLabel": "V1",
+        "status": "APPROVED",
+        "sourceMissionIds": [
+          "M-2026-0829-017"
+        ],
+        "sourceCapturePackageIds": [],
+        "sourceEvidenceIds": [],
+        "createdAt": "2026-08-29T00:00:00.000Z",
+        "createdBy": "u-001",
+        "qualityState": "PASS",
+        "completenessState": "COMPLETE"
+      },
+      {
+        "propertyRealityId": "PR-004188",
+        "sourceProcessingJobIds": [],
+        "approvedAt": null,
+        "approvedBy": null,
+        "supersedesTwinVersionId": null,
+        "supersededByTwinVersionId": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "originReference": "Property centroid (fixture)",
+        "bounds": null,
+        "unitSystem": "IMPERIAL",
+        "geometryArtifactIds": [],
+        "textureArtifactIds": [],
+        "thermalArtifactIds": [],
+        "measurementSetIds": [],
+        "layerSetId": "LS-B188-1",
+        "passportRevisionId": null,
+        "sourceMode": "FIXTURE",
+        "notes": null,
+        "twinVersionId": "TWV-B188-1",
+        "propertyId": "SXP-004188",
+        "twinType": "TWIN_TYPE_B",
+        "versionNumber": 1,
+        "versionLabel": "V1",
+        "status": "REVIEW_REQUIRED",
+        "sourceMissionIds": [
+          "M-2026-0829-016"
+        ],
+        "sourceCapturePackageIds": [
+          "CP-016-1"
+        ],
+        "sourceEvidenceIds": [
+          "EA-16001"
+        ],
+        "createdAt": "2026-08-29T13:27:18.000Z",
+        "createdBy": "u-001",
+        "qualityState": "NOT_EVALUATED",
+        "completenessState": "PARTIAL"
+      },
+      {
+        "propertyRealityId": "PR-004190",
+        "sourceProcessingJobIds": [],
+        "approvedAt": null,
+        "approvedBy": null,
+        "supersedesTwinVersionId": null,
+        "supersededByTwinVersionId": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "originReference": "Property centroid (fixture)",
+        "bounds": null,
+        "unitSystem": "IMPERIAL",
+        "geometryArtifactIds": [],
+        "textureArtifactIds": [],
+        "thermalArtifactIds": [],
+        "measurementSetIds": [],
+        "layerSetId": null,
+        "passportRevisionId": null,
+        "sourceMode": "FIXTURE",
+        "notes": "Insufficient overlap — reconstruction could not resolve roof planes.",
+        "twinVersionId": "TWV-A190-1",
+        "propertyId": "SXP-004190",
+        "twinType": "TWIN_TYPE_A",
+        "versionNumber": 1,
+        "versionLabel": "V1",
+        "status": "FAILED",
+        "sourceMissionIds": [
+          "M-2026-0829-015"
+        ],
+        "sourceCapturePackageIds": [
+          "CP-015-1"
+        ],
+        "sourceEvidenceIds": [
+          "EA-15001"
+        ],
+        "createdAt": "2026-08-28T20:47:18.000Z",
+        "createdBy": "u-001",
+        "qualityState": "FAIL",
+        "completenessState": "INCOMPLETE"
+      }
+    ],
+    "artifacts": [
+      {
+        "sourceMode": "FIXTURE",
+        "isSimulated": true,
+        "notice": "SIMULATED DERIVED ARTIFACT — no reconstruction was performed.",
+        "pointCount": null,
+        "vertexCount": null,
+        "faceCount": null,
+        "resolution": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "unitSystem": "IMPERIAL",
+        "bounds": null,
+        "qualityState": "PASS",
+        "pointCloudSource": "FIXTURE_POINT_CLOUD",
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "spatialArtifactId": "SPA-A182-PC",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-A182-2",
+        "artifactType": "POINT_CLOUD",
+        "sourceEvidenceIds": [
+          "EA-90211"
+        ],
+        "processingJobId": "RJOB-A182-1",
+        "format": "LAS/LAZ (descriptor only)",
+        "storageReference": "reality/SXP-004182/TWV-A182-2/POINT_CLOUD"
+      },
+      {
+        "sourceMode": "FIXTURE",
+        "isSimulated": true,
+        "notice": "SIMULATED DERIVED ARTIFACT — no reconstruction was performed.",
+        "pointCount": null,
+        "vertexCount": null,
+        "faceCount": null,
+        "resolution": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "unitSystem": "IMPERIAL",
+        "bounds": null,
+        "qualityState": "PASS_WITH_WARNINGS",
+        "pointCloudSource": null,
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "spatialArtifactId": "SPA-A182-MESH",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-A182-2",
+        "artifactType": "MESH",
+        "sourceEvidenceIds": [
+          "EA-90211"
+        ],
+        "processingJobId": "RJOB-A182-2",
+        "format": "OBJ (descriptor only)",
+        "storageReference": "reality/SXP-004182/TWV-A182-2/MESH",
+        "meshQuality": "HOLES_PRESENT"
+      },
+      {
+        "sourceMode": "FIXTURE",
+        "isSimulated": true,
+        "notice": "SIMULATED DERIVED ARTIFACT — no reconstruction was performed.",
+        "pointCount": null,
+        "vertexCount": null,
+        "faceCount": null,
+        "resolution": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "unitSystem": "IMPERIAL",
+        "bounds": null,
+        "qualityState": "PASS",
+        "pointCloudSource": null,
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "spatialArtifactId": "SPA-A182-TEX",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-A182-2",
+        "artifactType": "TEXTURED_MESH",
+        "sourceEvidenceIds": [
+          "EA-90211"
+        ],
+        "processingJobId": "RJOB-A182-3",
+        "format": "glTF (descriptor only)",
+        "storageReference": "reality/SXP-004182/TWV-A182-2/TEXTURED_MESH",
+        "textureSourceEvidenceIds": [
+          "EA-90211"
+        ]
+      },
+      {
+        "sourceMode": "FIXTURE",
+        "isSimulated": true,
+        "notice": "SIMULATED DERIVED ARTIFACT — no reconstruction was performed.",
+        "pointCount": null,
+        "vertexCount": null,
+        "faceCount": null,
+        "resolution": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "unitSystem": "IMPERIAL",
+        "bounds": null,
+        "qualityState": "PASS",
+        "pointCloudSource": null,
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "spatialArtifactId": "SPA-A182-ROOF",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-A182-2",
+        "artifactType": "ROOF_GEOMETRY",
+        "sourceEvidenceIds": [
+          "EA-90211"
+        ],
+        "processingJobId": "RJOB-A182-4",
+        "format": "GeoJSON (descriptor only)",
+        "storageReference": "reality/SXP-004182/TWV-A182-2/ROOF_GEOMETRY"
+      },
+      {
+        "sourceMode": "FIXTURE",
+        "isSimulated": true,
+        "notice": "SIMULATED DERIVED ARTIFACT — no reconstruction was performed.",
+        "pointCount": null,
+        "vertexCount": null,
+        "faceCount": null,
+        "resolution": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "unitSystem": "IMPERIAL",
+        "bounds": null,
+        "qualityState": "PASS",
+        "pointCloudSource": null,
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "spatialArtifactId": "SPA-A182-ORTHO",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-A182-2",
+        "artifactType": "ORTHOMOSAIC",
+        "sourceEvidenceIds": [
+          "EA-90211"
+        ],
+        "processingJobId": "RJOB-A182-5",
+        "format": "GeoTIFF (descriptor only)",
+        "storageReference": "reality/SXP-004182/TWV-A182-2/ORTHOMOSAIC"
+      },
+      {
+        "sourceMode": "FIXTURE",
+        "isSimulated": true,
+        "notice": "SIMULATED DERIVED ARTIFACT — no reconstruction was performed.",
+        "pointCount": null,
+        "vertexCount": null,
+        "faceCount": null,
+        "resolution": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "unitSystem": "IMPERIAL",
+        "bounds": null,
+        "qualityState": "PASS",
+        "pointCloudSource": "FIXTURE_POINT_CLOUD",
+        "createdAt": "2026-02-11T00:00:00.000Z",
+        "spatialArtifactId": "SPA-A182-PC-V1",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-A182-1",
+        "artifactType": "POINT_CLOUD",
+        "sourceEvidenceIds": [
+          "EA-90211"
+        ],
+        "processingJobId": "RJOB-A182-0",
+        "format": "LAS/LAZ (descriptor only)",
+        "storageReference": "reality/SXP-004182/TWV-A182-1/POINT_CLOUD"
+      },
+      {
+        "sourceMode": "FIXTURE",
+        "isSimulated": true,
+        "notice": "SIMULATED DERIVED ARTIFACT — no reconstruction was performed.",
+        "pointCount": null,
+        "vertexCount": null,
+        "faceCount": null,
+        "resolution": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "unitSystem": "IMPERIAL",
+        "bounds": null,
+        "qualityState": "PASS",
+        "pointCloudSource": null,
+        "createdAt": "2026-02-11T00:00:00.000Z",
+        "spatialArtifactId": "SPA-A182-MESH-V1",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-A182-1",
+        "artifactType": "MESH",
+        "sourceEvidenceIds": [
+          "EA-90211"
+        ],
+        "processingJobId": "RJOB-A182-0",
+        "format": "OBJ (descriptor only)",
+        "storageReference": "reality/SXP-004182/TWV-A182-1/MESH",
+        "meshQuality": "COMPLETE"
+      },
+      {
+        "sourceMode": "FIXTURE",
+        "isSimulated": true,
+        "notice": "SIMULATED DERIVED ARTIFACT — no reconstruction was performed.",
+        "pointCount": null,
+        "vertexCount": null,
+        "faceCount": null,
+        "resolution": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "unitSystem": "IMPERIAL",
+        "bounds": null,
+        "qualityState": "PASS_WITH_WARNINGS",
+        "pointCloudSource": null,
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "spatialArtifactId": "SPA-B182-MESH",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-B182-1",
+        "artifactType": "MESH",
+        "sourceEvidenceIds": [
+          "EA-90211"
+        ],
+        "processingJobId": "RJOB-B182-1",
+        "format": "OBJ (descriptor only)",
+        "storageReference": "reality/SXP-004182/TWV-B182-1/MESH",
+        "meshQuality": "PARTIAL"
+      },
+      {
+        "sourceMode": "FIXTURE",
+        "isSimulated": true,
+        "notice": "SIMULATED DERIVED ARTIFACT — no reconstruction was performed.",
+        "pointCount": null,
+        "vertexCount": null,
+        "faceCount": null,
+        "resolution": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "unitSystem": "IMPERIAL",
+        "bounds": null,
+        "qualityState": "PASS_WITH_WARNINGS",
+        "pointCloudSource": null,
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "spatialArtifactId": "SPA-B182-THERM",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-B182-1",
+        "artifactType": "THERMAL_SPATIAL_LAYER",
+        "sourceEvidenceIds": [
+          "EA-90212"
+        ],
+        "processingJobId": "RJOB-B182-2",
+        "format": "GeoJSON (descriptor only)",
+        "storageReference": "reality/SXP-004182/TWV-B182-1/THERMAL"
+      },
+      {
+        "sourceMode": "FIXTURE",
+        "isSimulated": true,
+        "notice": "SIMULATED DERIVED ARTIFACT — no reconstruction was performed.",
+        "pointCount": null,
+        "vertexCount": null,
+        "faceCount": null,
+        "resolution": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "unitSystem": "IMPERIAL",
+        "bounds": null,
+        "qualityState": "PASS",
+        "pointCloudSource": null,
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "spatialArtifactId": "SPA-C179-ORTHO",
+        "propertyId": "SXP-004179",
+        "twinVersionId": "TWV-C179-1",
+        "artifactType": "ORTHOMOSAIC",
+        "sourceEvidenceIds": [],
+        "processingJobId": "RJOB-C179-1",
+        "format": "GeoTIFF (descriptor only)",
+        "storageReference": "reality/SXP-004179/TWV-C179-1/ORTHOMOSAIC"
+      },
+      {
+        "sourceMode": "FIXTURE",
+        "isSimulated": true,
+        "notice": "SIMULATED DERIVED ARTIFACT — no reconstruction was performed.",
+        "pointCount": null,
+        "vertexCount": null,
+        "faceCount": null,
+        "resolution": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "unitSystem": "IMPERIAL",
+        "bounds": null,
+        "qualityState": "PASS",
+        "pointCloudSource": null,
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "spatialArtifactId": "SPA-C179-ROOF",
+        "propertyId": "SXP-004179",
+        "twinVersionId": "TWV-C179-1",
+        "artifactType": "ROOF_GEOMETRY",
+        "sourceEvidenceIds": [],
+        "processingJobId": "RJOB-C179-2",
+        "format": "GeoJSON (descriptor only)",
+        "storageReference": "reality/SXP-004179/TWV-C179-1/ROOF_GEOMETRY"
+      },
+      {
+        "sourceMode": "FIXTURE",
+        "isSimulated": true,
+        "notice": "SIMULATED DERIVED ARTIFACT — no reconstruction was performed.",
+        "pointCount": null,
+        "vertexCount": null,
+        "faceCount": null,
+        "resolution": null,
+        "coordinateSystem": "LOCAL_PROPERTY",
+        "unitSystem": "IMPERIAL",
+        "bounds": null,
+        "qualityState": "NOT_EVALUATED",
+        "pointCloudSource": null,
+        "createdAt": "2026-08-27T21:27:18.000Z",
+        "spatialArtifactId": "SPA-B188-THERM",
+        "propertyId": "SXP-004188",
+        "twinVersionId": "TWV-B188-1",
+        "artifactType": "THERMAL_SPATIAL_LAYER",
+        "sourceEvidenceIds": [
+          "EA-16001"
+        ],
+        "processingJobId": "RJOB-B188-1",
+        "format": "GeoJSON (descriptor only)",
+        "storageReference": "reality/SXP-004188/TWV-B188-1/THERMAL"
+      }
+    ],
+    "thermal": [
+      {
+        "thermalLayerId": "TSL-B182-1",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-B182-1",
+        "sourceThermalEvidenceIds": [
+          "EA-90260"
+        ],
+        "sourceRadiometricEvidenceIds": [
+          "EA-90212"
+        ],
+        "alignmentMethod": "FIXTURE_REGISTRATION",
+        "alignmentState": "ALIGNED_WITH_WARNINGS",
+        "processingVersion": "fixture-1.0",
+        "qualityState": "PASS_WITH_WARNINGS",
+        "coverageState": "PARTIAL",
+        "radiometricAvailable": true,
+        "sourceMode": "FIXTURE",
+        "notes": "North plane alignment is partial. Radiometric source is present but no calibrated surface temperatures are published."
+      },
+      {
+        "thermalLayerId": "TSL-B188-1",
+        "propertyId": "SXP-004188",
+        "twinVersionId": "TWV-B188-1",
+        "sourceThermalEvidenceIds": [],
+        "sourceRadiometricEvidenceIds": [],
+        "alignmentMethod": null,
+        "alignmentState": "NOT_STARTED",
+        "processingVersion": null,
+        "qualityState": "NOT_EVALUATED",
+        "coverageState": "UNKNOWN",
+        "radiometricAvailable": false,
+        "sourceMode": "FIXTURE",
+        "notes": "No radiometric source has been associated. No temperature values can be claimed."
+      }
+    ],
+    "roof": [
+      {
+        "roofGeometryId": "RG-A182-2",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-A182-2",
+        "qualityState": "PASS",
+        "sourceMode": "FIXTURE",
+        "isSimulated": true,
+        "sections": [
+          {
+            "featureId": "ROOF-PLANE-01",
+            "label": "North plane",
+            "areaSqFt": 1424,
+            "pitch": "6.5:12",
+            "derived": true
+          },
+          {
+            "featureId": "ROOF-PLANE-02",
+            "label": "South plane",
+            "areaSqFt": 1432,
+            "pitch": "6.5:12",
+            "derived": true
+          }
+        ],
+        "ridges": [
+          {
+            "featureId": "ROOF-RIDGE-01",
+            "label": "Main ridge",
+            "lengthFt": 86
+          }
+        ],
+        "hips": [],
+        "valleys": [
+          {
+            "featureId": "ROOF-VALLEY-01",
+            "label": "East valley",
+            "lengthFt": 18
+          }
+        ],
+        "eaves": [
+          {
+            "featureId": "ROOF-EAVE-01",
+            "label": "Perimeter eave",
+            "lengthFt": 168
+          }
+        ],
+        "rakes": [],
+        "penetrations": [
+          {
+            "featureId": "ROOF-PEN-01",
+            "label": "Chimney",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "measurements": [
+      {
+        "measurementSetId": "TMS-A182-2",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-A182-2",
+        "sourceEvidenceIds": [
+          "EA-90211"
+        ],
+        "sourceSpatialArtifactIds": [
+          "SPA-A182-ROOF",
+          "SPA-A182-MESH"
+        ],
+        "processorVersion": "fixture-1.0",
+        "qualityState": "PASS",
+        "createdAt": "2026-08-27T00:00:00.000Z",
+        "sourceMode": "FIXTURE",
+        "measurements": [
+          {
+            "measurementId": "TM-0001",
+            "featureId": "ROOF-PLANE-01",
+            "name": "North plane area",
+            "value": 1424,
+            "unit": "sq ft",
+            "category": "ROOF",
+            "method": "PHOTOGRAMMETRIC",
+            "truthClassification": "DERIVED",
+            "sourceEvidenceIds": [
+              "EA-90211"
+            ],
+            "sourceArtifactIds": [
+              "SPA-A182-ROOF"
+            ],
+            "precision": "±2%",
+            "qualityState": "PASS",
+            "createdAt": "2026-08-27T00:00:00.000Z"
+          },
+          {
+            "measurementId": "TM-0002",
+            "featureId": "ROOF-RIDGE-01",
+            "name": "Main ridge length",
+            "value": 86,
+            "unit": "lf",
+            "category": "ROOF",
+            "method": "GEOMETRIC_DERIVATION",
+            "truthClassification": "DERIVED",
+            "sourceEvidenceIds": [
+              "EA-90211"
+            ],
+            "sourceArtifactIds": [
+              "SPA-A182-ROOF"
+            ],
+            "precision": "±1%",
+            "qualityState": "PASS",
+            "createdAt": "2026-08-27T00:00:00.000Z"
+          },
+          {
+            "measurementId": "TM-0003",
+            "featureId": null,
+            "name": "Ambient temperature at capture",
+            "value": 72,
+            "unit": "°F",
+            "category": "THERMAL",
+            "method": "DIRECT_SENSOR",
+            "truthClassification": "MEASURED",
+            "sourceEvidenceIds": [
+              "EA-90212"
+            ],
+            "sourceArtifactIds": [],
+            "precision": null,
+            "qualityState": "PASS",
+            "createdAt": "2026-08-27T00:00:00.000Z"
+          }
+        ]
+      }
+    ],
+    "quality": [
+      {
+        "assessmentId": "TQA-A182-2",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-A182-2",
+        "geometryQuality": "PASS",
+        "textureQuality": "PASS",
+        "thermalAlignmentQuality": "NOT_EVALUATED",
+        "measurementQuality": "PASS",
+        "coverageQuality": "PASS",
+        "overallState": "PASS",
+        "checks": [
+          {
+            "code": "GEOM",
+            "label": "Geometry closure",
+            "state": "PASS",
+            "source": "FIXTURE"
+          },
+          {
+            "code": "TEX",
+            "label": "Texture coverage",
+            "state": "PASS",
+            "source": "FIXTURE"
+          },
+          {
+            "code": "MESH_HOLES",
+            "label": "Mesh holes",
+            "state": "WARNING",
+            "source": "FIXTURE",
+            "detail": "Small holes under the eave overhang."
+          }
+        ],
+        "warnings": [
+          "Mesh holes"
+        ],
+        "reviewedAt": "2026-08-28T00:00:00.000Z",
+        "reviewedBy": "u-001",
+        "sourceMode": "FIXTURE"
+      }
+    ],
+    "layers": [
+      {
+        "layerSetId": "LS-A182-2",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-A182-2",
+        "sourceMode": "FIXTURE",
+        "layers": {
+          "BASE_GEOMETRY": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "RGB_TEXTURE": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "THERMAL": {
+            "state": "NOT_PROCESSED",
+            "observation": "UNKNOWN",
+            "note": "Thermal belongs to the Twin B version for this property."
+          },
+          "ROOF": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "EXTERIOR_ENVELOPE": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "WINDOWS": {
+            "state": "PARTIAL",
+            "observation": "DERIVED",
+            "note": "Openings inferred from geometry, not individually verified."
+          },
+          "DOORS": {
+            "state": "PARTIAL",
+            "observation": "DERIVED",
+            "note": null
+          },
+          "HVAC": {
+            "state": "NOT_OBSERVED",
+            "observation": "UNKNOWN",
+            "note": "Concealed equipment was not observed by this capture."
+          },
+          "ELECTRICAL": {
+            "state": "NOT_OBSERVED",
+            "observation": "UNKNOWN",
+            "note": "Wiring inside walls cannot be observed from an exterior capture."
+          },
+          "PLUMBING": {
+            "state": "NOT_OBSERVED",
+            "observation": "UNKNOWN",
+            "note": "Concealed plumbing cannot be observed from an exterior capture."
+          },
+          "FOUNDATION": {
+            "state": "PARTIAL",
+            "observation": "DERIVED",
+            "note": "Only the visible foundation band was captured."
+          },
+          "DRAINAGE": {
+            "state": "NOT_OBSERVED",
+            "observation": "UNKNOWN",
+            "note": null
+          },
+          "MEASUREMENTS": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "FINDINGS": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "PROJECTS": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "REPAIRS": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "MAINTENANCE": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "EVIDENCE": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "CORTEX": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "PASSPORT": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          }
+        }
+      },
+      {
+        "layerSetId": "LS-B182-1",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-B182-1",
+        "sourceMode": "FIXTURE",
+        "layers": {
+          "BASE_GEOMETRY": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "RGB_TEXTURE": {
+            "state": "NOT_APPLICABLE",
+            "observation": "UNKNOWN",
+            "note": "Twin B does not require texture."
+          },
+          "THERMAL": {
+            "state": "PARTIAL",
+            "observation": "DERIVED",
+            "note": "Alignment partial on the north plane."
+          },
+          "ROOF": {
+            "state": "PARTIAL",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "EXTERIOR_ENVELOPE": {
+            "state": "PARTIAL",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "WINDOWS": {
+            "state": "NOT_OBSERVED",
+            "observation": "UNKNOWN",
+            "note": null
+          },
+          "DOORS": {
+            "state": "NOT_OBSERVED",
+            "observation": "UNKNOWN",
+            "note": null
+          },
+          "HVAC": {
+            "state": "PARTIAL",
+            "observation": "PROBABLE",
+            "note": "Thermal signature suggests register locations. Inferred, not observed."
+          },
+          "ELECTRICAL": {
+            "state": "NOT_OBSERVED",
+            "observation": "UNKNOWN",
+            "note": null
+          },
+          "PLUMBING": {
+            "state": "NOT_OBSERVED",
+            "observation": "UNKNOWN",
+            "note": null
+          },
+          "FOUNDATION": {
+            "state": "NOT_OBSERVED",
+            "observation": "UNKNOWN",
+            "note": null
+          },
+          "DRAINAGE": {
+            "state": "NOT_OBSERVED",
+            "observation": "UNKNOWN",
+            "note": null
+          },
+          "MEASUREMENTS": {
+            "state": "NOT_PROCESSED",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "FINDINGS": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "PROJECTS": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "REPAIRS": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "MAINTENANCE": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "EVIDENCE": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "CORTEX": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "PASSPORT": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          }
+        }
+      },
+      {
+        "layerSetId": "LS-C179-1",
+        "propertyId": "SXP-004179",
+        "twinVersionId": "TWV-C179-1",
+        "sourceMode": "FIXTURE",
+        "layers": {
+          "BASE_GEOMETRY": {
+            "state": "PARTIAL",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "RGB_TEXTURE": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "ROOF": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "EXTERIOR_ENVELOPE": {
+            "state": "PARTIAL",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "MEASUREMENTS": {
+            "state": "NOT_PROCESSED",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "FINDINGS": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "EVIDENCE": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "PASSPORT": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          }
+        }
+      },
+      {
+        "layerSetId": "LS-B188-1",
+        "propertyId": "SXP-004188",
+        "twinVersionId": "TWV-B188-1",
+        "sourceMode": "FIXTURE",
+        "layers": {
+          "BASE_GEOMETRY": {
+            "state": "NOT_PROCESSED",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "THERMAL": {
+            "state": "NOT_PROCESSED",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "ROOF": {
+            "state": "NOT_OBSERVED",
+            "observation": "UNKNOWN",
+            "note": null
+          },
+          "EVIDENCE": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          }
+        }
+      },
+      {
+        "layerSetId": "LS-A182-1",
+        "propertyId": "SXP-004182",
+        "twinVersionId": "TWV-A182-1",
+        "sourceMode": "FIXTURE",
+        "layers": {
+          "BASE_GEOMETRY": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "RGB_TEXTURE": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          },
+          "ROOF": {
+            "state": "AVAILABLE",
+            "observation": "KNOWN",
+            "note": null
+          }
+        }
+      }
+    ],
+    "comparisons": [],
+    "changes": [
+      {
+        "changeSetId": "RCS-SEED-1",
+        "propertyId": "SXP-004182",
+        "baseTwinVersionId": "TWV-A182-1",
+        "comparisonTwinVersionId": "TWV-A182-2",
+        "isSimulated": true,
+        "sourceMode": "FIXTURE",
+        "notice": "SIMULATED COMPARISON — no geometric difference computation was performed.",
+        "reviewState": "PENDING",
+        "createdAt": "2026-08-28T00:00:00.000Z",
+        "changes": [
+          {
+            "changeId": "CH-0001",
+            "changeClass": "MODIFIED",
+            "baseFeatureId": "ROOF-PLANE-01",
+            "newFeatureId": "ROOF-PLANE-01",
+            "description": "Roof covering replaced between versions.",
+            "sourceArtifactIds": [
+              "SPA-A182-MESH-V1",
+              "SPA-A182-MESH"
+            ],
+            "processorVersion": "fixture-1.0",
+            "isSimulated": true
+          },
+          {
+            "changeId": "CH-0002",
+            "changeClass": "THERMAL_CHANGED",
+            "baseFeatureId": "ROOF-PLANE-01",
+            "newFeatureId": "ROOF-PLANE-01",
+            "description": "Thermal behaviour differs from the prior version.",
+            "sourceArtifactIds": [
+              "SPA-B182-THERM"
+            ],
+            "processorVersion": "fixture-1.0",
+            "isSimulated": true
+          }
+        ]
+      }
+    ],
+    "jobs": [
+      {
+        "jobId": "RJOB-A182-1",
+        "propertyId": "SXP-004182",
+        "manifestId": null,
+        "twinVersionId": "TWV-A182-2",
+        "twinType": "TWIN_TYPE_A",
+        "processorType": "POINT_CLOUD_GENERATION",
+        "processorVersion": "fixture-1.0",
+        "status": "COMPLETE",
+        "inputEvidenceIds": [
+          "EA-90211"
+        ],
+        "inputArtifactIds": [],
+        "outputArtifactIds": [
+          "SPA-A182-PC"
+        ],
+        "startedAt": "2026-08-27T16:00:00.000Z",
+        "completedAt": "2026-08-27T16:40:00.000Z",
+        "progress": 100,
+        "warningCodes": [],
+        "failureReason": null,
+        "provider": "PropertyRealityProcessingProvider",
+        "sourceMode": "FIXTURE"
+      },
+      {
+        "jobId": "RJOB-A182-2",
+        "propertyId": "SXP-004182",
+        "manifestId": null,
+        "twinVersionId": "TWV-A182-2",
+        "twinType": "TWIN_TYPE_A",
+        "processorType": "MESH_GENERATION",
+        "processorVersion": "fixture-1.0",
+        "status": "COMPLETE_WITH_WARNINGS",
+        "inputEvidenceIds": [
+          "EA-90211"
+        ],
+        "inputArtifactIds": [
+          "SPA-A182-PC"
+        ],
+        "outputArtifactIds": [
+          "SPA-A182-MESH"
+        ],
+        "startedAt": "2026-08-27T16:41:00.000Z",
+        "completedAt": "2026-08-27T17:10:00.000Z",
+        "progress": 100,
+        "warningCodes": [
+          "MESH_HOLES"
+        ],
+        "failureReason": null,
+        "provider": "PropertyRealityProcessingProvider",
+        "sourceMode": "FIXTURE"
+      },
+      {
+        "jobId": "RJOB-B182-2",
+        "propertyId": "SXP-004182",
+        "manifestId": null,
+        "twinVersionId": "TWV-B182-1",
+        "twinType": "TWIN_TYPE_B",
+        "processorType": "THERMAL_ALIGNMENT",
+        "processorVersion": "fixture-1.0",
+        "status": "COMPLETE_WITH_WARNINGS",
+        "inputEvidenceIds": [
+          "EA-90212"
+        ],
+        "inputArtifactIds": [
+          "SPA-B182-MESH"
+        ],
+        "outputArtifactIds": [
+          "SPA-B182-THERM"
+        ],
+        "startedAt": "2026-08-27T17:20:00.000Z",
+        "completedAt": "2026-08-27T17:35:00.000Z",
+        "progress": 100,
+        "warningCodes": [
+          "PARTIAL_ALIGNMENT"
+        ],
+        "failureReason": null,
+        "provider": "PropertyRealityProcessingProvider",
+        "sourceMode": "FIXTURE"
+      },
+      {
+        "jobId": "RJOB-A190-1",
+        "propertyId": "SXP-004190",
+        "manifestId": null,
+        "twinVersionId": "TWV-A190-1",
+        "twinType": "TWIN_TYPE_A",
+        "processorType": "PHOTOGRAMMETRY",
+        "processorVersion": "fixture-1.0",
+        "status": "FAILED",
+        "inputEvidenceIds": [
+          "EA-15001"
+        ],
+        "inputArtifactIds": [],
+        "outputArtifactIds": [],
+        "startedAt": "2026-08-28T20:47:18.000Z",
+        "completedAt": "2026-08-28T20:49:18.000Z",
+        "progress": 0,
+        "warningCodes": [],
+        "failureReason": "Insufficient overlap — capture coverage was 71%.",
+        "provider": "PropertyRealityProcessingProvider",
+        "sourceMode": "FIXTURE"
+      },
+      {
+        "jobId": "RJOB-B188-1",
+        "propertyId": "SXP-004188",
+        "manifestId": null,
+        "twinVersionId": "TWV-B188-1",
+        "twinType": "TWIN_TYPE_B",
+        "processorType": "THERMAL_ALIGNMENT",
+        "processorVersion": "fixture-1.0",
+        "status": "RUNNING",
+        "inputEvidenceIds": [
+          "EA-16001"
+        ],
+        "inputArtifactIds": [],
+        "outputArtifactIds": [
+          "SPA-B188-THERM"
+        ],
+        "startedAt": "2026-08-29T17:57:18.000Z",
+        "completedAt": null,
+        "progress": 45,
+        "warningCodes": [],
+        "failureReason": null,
+        "provider": "PropertyRealityProcessingProvider",
+        "sourceMode": "FIXTURE"
+      },
+      {
+        "jobId": "RJOB-18zfm66",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "datasetId": "RQD-0003",
+        "manifestId": null,
+        "twinVersionId": null,
+        "twinType": "TWIN_TYPE_A",
+        "processorType": "MESH_GENERATION",
+        "processorVersion": "fixture-1.0",
+        "status": "QUEUED",
+        "inputEvidenceIds": [
+          "EA-0001",
+          "EA-0012"
+        ],
+        "inputArtifactIds": [],
+        "outputArtifactIds": [],
+        "startedAt": null,
+        "completedAt": null,
+        "progress": 0,
+        "warningCodes": [],
+        "failureReason": null,
+        "provider": "PropertyRealityProcessingProvider",
+        "sourceMode": "FIXTURE"
+      }
+    ],
+    "manifests": [],
+    "qualificationDatasets": [
+      {
+        "datasetId": "RQD-0003",
+        "propertyId": "SXP-004182",
+        "missionId": "M-2026-0827-012",
+        "sourceType": "PUBLIC_QUALIFICATION_DATASET",
+        "sourceRoot": "/tmp/stratex-proof-a/src",
+        "sourceFiles": [
+          {
+            "fileId": "RQF-0001",
+            "propertyId": "SXP-004182",
+            "missionId": "M-2026-0827-012",
+            "sourceType": "PUBLIC_QUALIFICATION_DATASET",
+            "sourceRoot": "/tmp/stratex-proof-a/src",
+            "relativePath": "IMG_001.JPG",
+            "fileName": "IMG_001.JPG",
+            "extension": "JPG",
+            "byteSize": 5,
+            "contentHash": "8ed3f6ad685b959ead7022518e1af76cd816f8e8ec7ccdda1ed4018e8f2223f8",
+            "hashState": "COMPUTED",
+            "hashAlgorithm": "SHA-256",
+            "registeredAt": "2026-08-31T03:20:39.698Z",
+            "sourceReference": "/tmp/stratex-proof-a/src/IMG_001.JPG"
+          },
+          {
+            "fileId": "RQF-0002",
+            "propertyId": "SXP-004182",
+            "missionId": "M-2026-0827-012",
+            "sourceType": "PUBLIC_QUALIFICATION_DATASET",
+            "sourceRoot": "/tmp/stratex-proof-a/src",
+            "relativePath": "IMG_002.JPG",
+            "fileName": "IMG_002.JPG",
+            "extension": "JPG",
+            "byteSize": 4,
+            "contentHash": "f44e64e75f3948e9f73f8dfa94721c4ce8cbb4f265c4790c702b2d41cfbf2753",
+            "hashState": "COMPUTED",
+            "hashAlgorithm": "SHA-256",
+            "registeredAt": "2026-08-31T03:20:39.698Z",
+            "sourceReference": "/tmp/stratex-proof-a/src/IMG_002.JPG"
+          }
+        ],
+        "createdAt": "2026-08-31T03:20:39.698Z",
+        "validationState": "READY_FOR_INGEST",
+        "validationNotes": "Qualification dataset is property-scoped and hashed; ready for the next ingest step.",
+        "registeredBy": "operator:cli"
+      }
+    ],
+    "events": [
+      {
+        "eventId": "RE-0004",
+        "type": "QUALIFICATION_DATASET_PREPARED",
+        "at": "2026-08-31T03:20:39.698Z",
+        "propertyId": "SXP-004182",
+        "twinVersionId": null,
+        "actor": "operator:cli",
+        "reason": "PUBLIC_QUALIFICATION_DATASET / 2 files"
+      },
+      {
+        "eventId": "RE-0006",
+        "type": "REALITY_JOB_QUEUED",
+        "at": "2026-08-31T03:20:41.018Z",
+        "propertyId": "SXP-004182",
+        "twinVersionId": null,
+        "actor": "operator:cli",
+        "reason": "MESH_GENERATION"
+      }
+    ],
+    "audit": [
+      {
+        "auditId": "RA-0005",
+        "at": "2026-08-31T03:20:39.698Z",
+        "actor": "operator:cli",
+        "actorType": "SYSTEM",
+        "domain": "PROPERTY_REALITY",
+        "action": "QUALIFICATION_DATASET_PREPARED",
+        "objectType": "PropertyRealityModel",
+        "objectId": null,
+        "propertyId": "SXP-004182",
+        "previousState": null,
+        "newState": null,
+        "reason": "PUBLIC_QUALIFICATION_DATASET / 2 files",
+        "sourceSystem": "reality.engine"
+      },
+      {
+        "auditId": "RA-0007",
+        "at": "2026-08-31T03:20:41.018Z",
+        "actor": "operator:cli",
+        "actorType": "SYSTEM",
+        "domain": "PROPERTY_REALITY",
+        "action": "REALITY_JOB_QUEUED",
+        "objectType": "PropertyRealityModel",
+        "objectId": null,
+        "propertyId": "SXP-004182",
+        "previousState": null,
+        "newState": null,
+        "reason": "MESH_GENERATION",
+        "sourceSystem": "reality.engine"
+      }
+    ]
+  },
+  "version": 1
+}

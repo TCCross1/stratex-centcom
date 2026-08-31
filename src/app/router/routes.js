@@ -27,6 +27,11 @@ export const ROUTES = {
   findings: "/findings",
   finding: (id) => "/findings/" + id,
   passport: "/passport",
+  passportDetail: (passportId, tab) => "/passport/" + passportId + (tab ? "/" + tab : ""),
+  passportRevision: (passportId, revisionId) => "/passport/" + passportId + "/revisions/" + revisionId,
+  passportIngestion: (passportId, ingestionId) => "/passport/" + passportId + "/ingestions/" + ingestionId,
+  passportConflict: (passportId, conflictId) => "/passport/" + passportId + "/conflicts/" + conflictId,
+  passportProjection: (passportId, projectionType) => "/passport/" + passportId + "/projections/" + projectionType,
   core: "/core",
   pro: "/pro",
   habitat: "/habitat",
@@ -90,6 +95,13 @@ export const PROPERTY_TABS = [
   "Cortex", "Passport", "AWE", "Systems", "Measurements", "Findings", "Projects",
   "Repairs", "Maintenance", "Reports", "Documents", "Timeline", "Sharing", "Audit",
   "Core", "Pro", "Habitat",
+];
+
+export const PASSPORT_TABS = [
+  "Overview", "Current State", "Revisions", "Ingestions", "Conflicts", "Identity",
+  "Ownership", "Components", "Systems", "Measurements", "Twins", "Conditions",
+  "Projects", "Repairs", "Maintenance", "Documents", "Cortex", "Timeline",
+  "Sharing", "Audit", "Integrity",
 ];
 
 /** Parse a hash route into its segments. */

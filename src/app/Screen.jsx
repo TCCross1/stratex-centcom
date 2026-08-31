@@ -7,7 +7,16 @@ import { CentcomLockup } from "../components/brand/StratexBrand.jsx";
 import { Boundary, EmptyState, ErrorState, GhostButton, Loading, ModuleIntro, ModuleShell, Panel, PanelHeader } from "../components/common/primitives.jsx";
 import { CommandBar, SideNav, StatusBar } from "../components/navigation/CommandChrome.jsx";
 import { AdminCommand, CoreCommand, HabitatOversight, ProOversight, SystemsCommand } from "../components/panels/DownstreamPanels.jsx";
-import { CortexPanel, EvidencePanel, PassportPanel } from "../components/panels/PipelinePanels.jsx";
+import {
+  CortexPanel,
+  EvidencePanel,
+  PassportDetail,
+  PassportPanel,
+  PassportRevisionDetail,
+  PassportIngestionReview,
+  PassportConflictReview,
+  PassportProjectionInspector,
+} from "../components/panels/PipelinePanels.jsx";
 import { RealityCommand } from "../pages/reality/RealityCommandPage.jsx";
 import { RealityDetail } from "../pages/reality/RealityDetailPage.jsx";
 import { AtcCommand } from "../pages/atc/AtcCommandPage.jsx";
@@ -22,6 +31,7 @@ import { MissionDetail } from "../pages/missions/MissionDetailPage.jsx";
 import { CreateMission } from "../pages/missions/CreateMissionPage.jsx";
 import { PropertyCommand } from "../pages/properties/PropertyDetailPage.jsx";
 import { PropertyDirectory } from "../pages/properties/PropertyDirectoryPage.jsx";
+import { PassportCommand } from "../pages/passport/PassportCommandPage.jsx";
 
 export function Screen({ route, navigate, session }) {
   const [, seg1, seg2] = route.split("/");
@@ -81,6 +91,16 @@ export function Screen({ route, navigate, session }) {
         <CortexPanel />
       </ModuleShell>
     );
+  if (seg1 === "passport" && seg2 && route.includes("/revisions/"))
+    return <PassportRevisionDetail propertyId={seg2} revisionId={route.split("/")[4]} navigate={navigate} />;
+  if (seg1 === "passport" && seg2 && route.includes("/ingestions/"))
+    return <PassportIngestionReview propertyId={seg2} ingestionId={route.split("/")[4]} navigate={navigate} />;
+  if (seg1 === "passport" && seg2 && route.includes("/conflicts/"))
+    return <PassportConflictReview propertyId={seg2} conflictId={route.split("/")[4]} navigate={navigate} />;
+  if (seg1 === "passport" && seg2 && route.includes("/projections/"))
+    return <PassportProjectionInspector propertyId={seg2} projectionType={route.split("/")[4]} navigate={navigate} />;
+  if (seg1 === "passport" && seg2)
+    return <PassportDetail propertyId={seg2} tabSlug={route.split("/")[3]} navigate={navigate} />;
   if (seg1 === "passport")
     return (
       <ModuleShell title="PASSPORT COMMAND">
@@ -88,7 +108,7 @@ export function Screen({ route, navigate, session }) {
           <PanelHeader title="Canonical Property Record" />
           <ModuleIntro purpose="One property. One record. One truth — which means one canonical history with revisions, not one mutable row. Core and Cortex write through controlled pathways. Professionals never write here at all." />
         </Panel>
-        <PassportPanel />
+        <PassportCommand navigate={navigate} />
       </ModuleShell>
     );
   if (seg1 === "core") return <ModuleShell title="CORE COMMAND"><CoreCommand /></ModuleShell>;

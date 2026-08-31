@@ -1,14 +1,20 @@
 /**
- * PASSPORT FIXTURES — the canonical property record.
- * One property. One record. One truth — which means one canonical history with
- * revisions, not one mutable row.
+ * PASSPORT FIXTURES — canonical property record fixtures.
+ * These fixtures preserve the property-level context for the UI while the
+ * service contract holds the immutable revision model.
  */
 import { iso, ago } from "../../utils/format.js";
 
 export const passportRecord = {
+  passportId: "PP-SXP-004182",
   propertyId: "SXP-004182",
   currentRevision: "r14",
+  currentRevisionId: "r14",
   integrity: "clean",
+  status: "ACTIVE",
+  schemaVersion: "1.0",
+  integrityState: "clean",
+  latestAcceptedAt: iso("2026-08-30"),
   projections: { core: "synced", habitat: "synced" },
   revisions: [
     { id: "PR-14", rev: "r14", committedAt: ago(28), committedBy: "pipeline:cortex", summary: "Mission M-2026-0829-017 findings committed", conflict: false },

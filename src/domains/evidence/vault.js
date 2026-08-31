@@ -12,6 +12,7 @@
  */
 import { serve } from "../shared/transport.js";
 import MissionService from "../mission/service.js";
+import { readQualificationRegistry, mergeQualificationRegistry } from "../shared/qualification-store.js";
 import { computeHash, verifyHash, fixtureHash, HASH_STATE } from "./integrity.js";
 import {
   EvidenceStorageProvider, EvidenceSourceProvider, STORAGE_TIER,
@@ -28,16 +29,46 @@ import {
   processingJobs as seedJobs, custodyEvents as seedCustody,
 } from "./vault-fixtures.js";
 
-const store = {
-  packages: seedPackages.map((p) => ({ ...p })),
-  assets: seedAssets.map((a) => ({ ...a })),
-  quality: seedQuality.map((q) => ({ ...q })),
-  coverage: seedCoverage.map((c) => ({ ...c })),
-  jobs: seedJobs.map((j) => ({ ...j })),
-  custody: seedCustody.map((c) => ({ ...c })),
-  manifests: [],
-  events: [],
-  audit: [],
+const makeStore = (persisted = null) => ({
+  packages: (persisted?.evidence?.packages || seedPackages).map((p) => ({ ...p })),
+  assets: (persisted?.evidence?.assets || seedAssets).map((a) => ({ ...a })),
+  quality: (persisted?.evidence?.quality || seedQuality).map((q) => ({ ...q })),
+  coverage: (persisted?.evidence?.coverage || seedCoverage).map((c) => ({ ...c })),
+  jobs: (persisted?.evidence?.jobs || seedJobs).map((j) => ({ ...j })),
+  custody: (persisted?.evidence?.custody || seedCustody).map((c) => ({ ...c })),
+  manifests: persisted?.evidence?.manifests || [],
+  events: persisted?.evidence?.events || [],
+  audit: persisted?.evidence?.audit || [],
+  __qualificationLoaded: false,
+});
+
+let store = makeStore();
+
+const ensureEvidenceStateLoaded = async () => {
+  if (store.__qualificationLoaded) return store;
+  const persisted = await readQualificationRegistry();
+  if (persisted) {
+    Object.assign(store, makeStore(persisted));
+  }
+  store.__qualificationLoaded = true;
+  return store;
+};
+
+const persistEvidenceState = async () => {
+  await ensureEvidenceStateLoaded();
+  await mergeQualificationRegistry({
+    evidence: {
+      packages: store.packages,
+      assets: store.assets,
+      quality: store.quality,
+      coverage: store.coverage,
+      jobs: store.jobs,
+      custody: store.custody,
+      manifests: store.manifests,
+      events: store.events,
+      audit: store.audit,
+    },
+  });
 };
 
 let seq = 0;
@@ -127,6 +158,7 @@ export const EvidenceVault = {
    * property and mission disagree is quarantined, never stored as truth.
    */
   ingest: async (input, { actor = "system", bytes = null } = {}) => {
+    await ensureEvidenceStateLoaded();
     const { propertyId, missionId, capturePackageId, artifactType, origin = ARTIFACT_ORIGIN.ORIGINAL } = input;
 
     if (!propertyId) throw new Error("Ingest rejected: evidence must name a property.");
@@ -210,6 +242,7 @@ export const EvidenceVault = {
     emit("EVIDENCE_INGESTED", { evidenceId, propertyId, missionId, actor, to: INGEST_STATE.COMPLETE });
 
     if (pkg) { pkg.receivedArtifactCount += 1; pkg.ingestState = INGEST_STATE.COMPLETE; }
+    await persistEvidenceState();
     return asset;
   },
 
@@ -446,6 +479,7 @@ export const EvidenceVault = {
    * capture package.
    */
   buildCortexManifest: async (capturePackageId, { actor = "system" } = {}) => {
+    await ensureEvidenceStateLoaded();
     const pkg = findPackage(capturePackageId);
     if (!pkg) throw new Error("Capture package not found.");
     const scoped = store.assets.filter((a) => a.capturePackageId === capturePackageId);

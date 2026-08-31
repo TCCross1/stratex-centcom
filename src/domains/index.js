@@ -142,6 +142,15 @@ export const centcomApi = {
 
   // passport / sharing / timeline
   getPassport: (propertyId) => PassportService.getByProperty(propertyId),
+  getPassportCommandSummary: () => PassportService.getCommandSummary(),
+  getPassportDirectoryFilters: () => PassportService.getPassportDirectoryFilters(),
+  listPassportDirectory: (filter) => PassportService.listPassportDirectory(filter),
+  getPassportAlerts: (propertyId) => PassportService.getPassportAlerts(propertyId),
+  getSystemsHealth: (propertyId) => PassportService.getSystemsHealth(propertyId),
+  getRevisionDetail: (propertyId, revisionId) => PassportService.getRevisionDetail(propertyId, revisionId),
+  getIngestionReview: (propertyId, ingestionId) => PassportService.getIngestionReview(propertyId, ingestionId),
+  getConflictReview: (propertyId, conflictId) => PassportService.getConflictReview(propertyId, conflictId),
+  getProjectionInspector: (propertyId, projectionType) => PassportService.getProjectionInspector(propertyId, projectionType),
   listGrants: (propertyId) => SharingService.listByProperty(propertyId),
   listTimeline: (propertyId) => TimelineService.listByProperty(propertyId),
 
@@ -220,6 +229,7 @@ export const centcomApi = {
   realityProviderHealth: () => RealityEngine.providerHealth(),
   realityAudit: (id) => RealityEngine.listAudit(id),
   realityBuildManifest: (id, opts) => RealityEngine.buildInputManifest(id, opts),
+  realityPrepareQualificationDataset: (payload) => RealityEngine.prepareQualificationDataset(payload),
 
   // reality projections — all read-only
   realityPassportProjection: (id) => RealityProjections.passport(id),

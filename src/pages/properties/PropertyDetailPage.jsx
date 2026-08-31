@@ -281,7 +281,7 @@ export function PropertyTabBody({ tab, property, navigate, session, openTab = ()
   if (tab === "Evidence") return <EvidencePanel propertyId={id} />;
   if (tab === "Cortex") return <CortexPanel propertyId={id} />;
   if (tab === "Findings") return <FindingsPanel propertyId={id} navigate={navigate} />;
-  if (tab === "Passport") return <PassportPanel />;
+  if (tab === "Passport") return <PassportPanel propertyId={id} navigate={navigate} />;
   if (tab === "Timeline") return <TimelinePanel full />;
   if (tab === "Sharing") return <SharingPanel propertyId={id} />;
   if (tab === "Audit") return <AuditPanel propertyId={id} />;

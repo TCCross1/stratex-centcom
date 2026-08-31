@@ -9,6 +9,8 @@ const SUITES = [
   ["ATC", "src/domains/atc/atc.test.mjs"],
   ["Evidence Vault", "src/domains/evidence/evidence.test.mjs"],
   ["Property Reality", "src/domains/reality/reality.test.mjs"],
+  ["Cortex", "src/domains/cortex/cortex.test.mjs"],
+  ["Passport", "src/domains/passport/passport.test.mjs"],
   ["Property Isolation", "src/domains/isolation.test.mjs"],
 ];
 

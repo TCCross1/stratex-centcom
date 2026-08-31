@@ -8,7 +8,9 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview --host",
-    "test": "node scripts/run-tests.mjs"
+    "test": "node scripts/run-tests.mjs",
+    "reality:ingest": "node scripts/reality-ingest.mjs",
+    "reality:import": "node scripts/reality-import.mjs"
   },
   "dependencies": { "react": "^18.3.1", "react-dom": "^18.3.1" },
   "devDependencies": { "@vitejs/plugin-react": "^4.3.1", "vite": "^5.4.0" }

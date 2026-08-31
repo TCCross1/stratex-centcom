@@ -25,7 +25,7 @@ import {
 import {
   Panel, Loading, ErrorState, Boundary,
 } from "../components/common/primitives.jsx";
-import { CentcomLockup } from "../components/brand/StratexBrand.jsx";
+import { BrandLogo, CentcomLockup } from "../components/brand/StratexBrand.jsx";
 import { Screen } from "./Screen.jsx";
 
 /** Injects the global stylesheet once. Mobile hardening lives in tokens.js. */
@@ -97,16 +97,34 @@ export default function StratexCentcom() {
               <main
                 ref={mainRef}
                 style={{
+                  position: "relative", isolation: "isolate",
                   flex: 1, minWidth: 0, overflowY: "auto",
                   WebkitOverflowScrolling: "touch",
                   padding: vp.isPhone ? "0 10px 16px" : "0 16px 18px 4px",
                 }}
                 aria-live="polite"
               >
-                {/* One broken visualization must not take down the shell. */}
-                <Boundary key={route}>
-                  <Screen route={route} navigate={navigate} session={sessionRes.data} />
-                </Boundary>
+                <div
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    display: "grid",
+                    placeItems: "center",
+                    pointerEvents: "none",
+                    zIndex: 0,
+                    opacity: 0.1,
+                    overflow: "hidden",
+                  }}
+                >
+                  <BrandLogo id="centcom" height={Math.min(520, vp.width * 0.42)} style={{ maxWidth: "72%", width: "auto", filter: "drop-shadow(0 0 12px rgba(17,36,62,0.9))" }} />
+                </div>
+                <div style={{ position: "relative", zIndex: 1 }}>
+                  {/* One broken visualization must not take down the shell. */}
+                  <Boundary key={route}>
+                    <Screen route={route} navigate={navigate} session={sessionRes.data} />
+                  </Boundary>
+                </div>
               </main>
             </div>
             <StatusBar />
