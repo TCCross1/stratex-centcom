@@ -9,14 +9,19 @@ export const ROUTES = {
   dashboard: "/centcom",
   live: "/live",
   missions: "/missions",
+  board: "/board",
+  boardDay: (date, city) => "/board/" + date + (city ? "?city=" + encodeURIComponent(city) : ""),
   missionCreate: (propertyId) => "/missions/new" + (propertyId ? "?property=" + propertyId : ""),
   mission: (id, tab) => "/missions/" + id + (tab ? "/" + tab : ""),
+  missionSee: (id) => "/missions/" + id + "/see",
   properties: "/properties",
   property: (id, tab) => "/properties/" + id + (tab ? "/" + tab : ""),
   reality: "/reality",
   realityProperty: (propertyId, twinType, tab) =>
     "/reality/" + propertyId + "/" + (twinType || "TWIN_TYPE_A") + (tab ? "/" + tab : ""),
   atc: "/atc",
+  atcDay: "/atc/day",
+  atcDayDate: (date, city) => "/atc/day/" + date + (city ? "?city=" + encodeURIComponent(city) : ""),
   atcMission: (id, tab) => "/atc/missions/" + id + (tab ? "/" + tab : ""),
   evidence: "/evidence",
   evidenceReview: "/evidence/review",
@@ -49,6 +54,7 @@ export const NAV = [
   { key: "centcom", label: "CENTCOM", sub: "Overview", route: ROUTES.dashboard, glyph: "target" },
   { key: "live", label: "Live Operations", sub: "Air Traffic Control", route: ROUTES.live, glyph: "target" },
   { key: "missions", label: "Missions", sub: "15-Stage Workflow", route: ROUTES.missions, glyph: "grid" },
+  { key: "board", label: "Board", sub: "Mission Calendar", route: ROUTES.board, glyph: "grid" },
   { key: "properties", label: "Properties", sub: "Intelligence Database", route: ROUTES.properties, glyph: "home" },
   { key: "atc", label: "ATC", sub: "Readiness & Telemetry", route: ROUTES.atc, glyph: "signal" },
   { key: "evidence", label: "Evidence", sub: "Vault & Provenance", route: ROUTES.evidence, glyph: "shield" },
@@ -86,7 +92,7 @@ export const ATC_TABS = [
 /** Mission Detail sections, in operator order. */
 export const MISSION_TABS = [
   "Overview", "Authorization", "Schedule", "Resources", "ATC", "Capture",
-  "Evidence", "Processing", "Cortex", "Passport", "Reports", "Timeline", "Audit",
+  "Evidence", "Processing", "Cortex", "See", "Passport", "Reports", "Timeline", "Audit",
 ];
 
 /** The authoritative property section list, in operator order. */

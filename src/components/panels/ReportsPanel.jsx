@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import T from "../../design/tokens.js";
 import { shortDate } from "../../utils/format.js";
 import centcomApi, { CoreReportAdapter } from "../../domains/index.js";
 import { buildManifest } from "../../domains/reports/manifest.js";
+import { PACKET_AUDIENCE } from "../../domains/reports/packet-contract.js";
 import { useResource, useViewport } from "../../app/hooks.js";
 import {
   Panel, PanelHeader, Label, Resource, EmptyState, DataTable, GhostButton, StatusDot, ModuleIntro,
 } from "../common/primitives.jsx";
+import { PacketPreview } from "../report/PacketPreview.jsx";
 
 /**
  * PROPERTY REPORTS
@@ -18,6 +20,12 @@ import {
 export function PropertyReportsPanel({ propertyId, openTab }) {
   const jobs = useResource(() => centcomApi.listReportJobs(), [propertyId]);
   const vp = useViewport();
+  const [audience, setAudience] = useState(PACKET_AUDIENCE.PRO);
+  const packet = useResource(
+    () => centcomApi.getReportPacket(propertyId, { audience, sourceMode: "FIXTURE" }),
+    [propertyId, audience]
+  );
+  const grants = useResource(() => centcomApi.listGrants(propertyId), [propertyId]);
 
   // Capability map for the manifest, derived from what this property has.
   const available = useResource(async () => {
@@ -144,6 +152,14 @@ export function PropertyReportsPanel({ propertyId, openTab }) {
               </>
             );
           }}
+        </Resource>
+      </Panel>
+
+      <Panel>
+        <PanelHeader title="Packet Preview — Passport Bound" accent="gold" />
+        <ModuleIntro purpose="Same instrument-panel contract Core agents will stamp. Missing Core takeoff and moisture index stay —. This preview is not a delivered PDF." />
+        <Resource res={packet} loadingLines={6}>
+          {(pkt) => <PacketPreview packet={pkt} onAudience={setAudience} grants={grants.data || []} />}
         </Resource>
       </Panel>
     </div>

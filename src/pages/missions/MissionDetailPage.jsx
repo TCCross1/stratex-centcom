@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import T from "../../design/tokens.js";
 import { relTime, shortDate } from "../../utils/format.js";
+import { tabSlugOf } from "../../utils/ids.js";
 import { ROUTES, MISSION_TABS } from "../../app/router/routes.js";
 import centcomApi from "../../domains/index.js";
 import { stageByKey, isHardBlocker } from "../../domains/mission/lifecycle.js";
@@ -10,16 +11,19 @@ import {
   Breadcrumb, ModuleIntro, MetalText,
 } from "../../components/common/primitives.jsx";
 import { StateChip, LifecycleRail } from "../../components/mission/MissionShared.jsx";
+import { MissionRouting } from "../../components/mission/MissionRouting.jsx";
+import { CortexSeePage } from "../cortex/CortexSeePage.jsx";
 
 export function MissionDetail({ missionId, tabSlug, navigate }) {
   const res = useResource(() => centcomApi.getMissionDetail(missionId), [missionId]);
-  const fromSlug = MISSION_TABS.find((t) => slugOf(t) === tabSlug);
+  const fromSlug = MISSION_TABS.find((t) => tabSlugOf(t) === tabSlug);
   const [tab, setTab] = useState(fromSlug || "Overview");
   const vp = useViewport();
 
   const openTab = (name) => {
     setTab(name);
-    navigate(ROUTES.mission(missionId, slugOf(name)));
+    const nextSlug = name === "See" ? "see" : tabSlugOf(name);
+    navigate(name === "See" ? ROUTES.missionSee(missionId) : ROUTES.mission(missionId, nextSlug));
   };
 
   return (
@@ -76,7 +80,7 @@ export function MissionDetail({ missionId, tabSlug, navigate }) {
             })}
           </div>
 
-          <MissionTabBody tab={tab} detail={d} navigate={navigate} openTab={openTab} vp={vp} />
+          <MissionTabBody tab={tab} detail={d} navigate={navigate} openTab={openTab} vp={vp} reload={res.reload} />
         </div>
       )}
     </Resource>
@@ -101,7 +105,9 @@ function MissionContextHeader({ detail: d, navigate, tab, vp }) {
       <div style={{ display: "flex", alignItems: "flex-start", gap: 16, flexWrap: "wrap" }}>
         <div style={{ flex: 1, minWidth: vp.isPhone ? "100%" : 0 }}>
           <MetalText size={vp.isPhone ? 18 : 23} track="0.04em">{m.missionType}</MetalText>
-          <div style={{ fontFamily: T.font.mono, fontSize: 12, color: T.color.bluePale, marginTop: 6 }}>{m.id}</div>
+          <div style={{ fontFamily: T.font.mono, fontSize: 12, color: T.color.bluePale, marginTop: 6 }}>
+            {(m.jobNumber || "NO JOB #") + " · " + m.id}
+          </div>
           <div style={{ display: "flex", gap: 7, flexWrap: "wrap", marginTop: 10 }}>
             <StateChip value={m.originType} small />
             <StateChip value={m.assessmentObjective} small />
@@ -171,7 +177,7 @@ function MissionStatusMatrix({ mission: m, vp }) {
 }
 
 
-function MissionActions({ detail: d, navigate }) {
+function MissionActions({ detail: d, reload }) {
   const [busy, setBusy] = useState(null);
   const [error, setError] = useState(null);
 
@@ -179,7 +185,7 @@ function MissionActions({ detail: d, navigate }) {
   // control always states its reason — it is never silently hidden.
   const act = async (label, fn) => {
     setBusy(label); setError(null);
-    try { await fn(); window.location.reload(); }
+    try { await fn(); if (reload) reload(); }
     catch (e) { setError(e.message); }
     finally { setBusy(null); }
   };
@@ -226,7 +232,7 @@ function MissionActions({ detail: d, navigate }) {
 /* ------------------------------------------------------------ tab bodies -- */
 
 
-function MissionTabBody({ tab, detail: d, navigate, openTab, vp }) {
+function MissionTabBody({ tab, detail: d, navigate, openTab, vp, reload }) {
   const m = d.mission;
   const facts = (n) => (vp.isPhone ? "1fr 1fr" : "repeat(" + n + ",1fr)");
 
@@ -285,8 +291,8 @@ function MissionTabBody({ tab, detail: d, navigate, openTab, vp }) {
           <PanelHeader title="Downstream State" />
           <MissionStatusMatrix mission={m} vp={vp} />
         </Panel>
-
-        <MissionActions detail={d} navigate={navigate} />
+        <MissionRouting detail={d} navigate={navigate} vp={vp} onChanged={reload} />
+        <MissionActions detail={d} reload={reload} />
         <MissionBlockers detail={d} vp={vp} />
       </div>
     );
@@ -371,7 +377,7 @@ function MissionTabBody({ tab, detail: d, navigate, openTab, vp }) {
 
         <Panel>
           <PanelHeader title="Assignment History" />
-          <ModuleIntro purpose="A reassignment supersedes the previous record. It never overwrites it — who was assigned, and when, stays on file." />
+          <ModuleIntro purpose="A reassignment supersedes the prior record; it never erases it." />
           <Resource
             res={{ data: d.assignments, loading: false, error: null, reload: () => {} }}
             empty={<EmptyState title="No assignment history" hint="Resources on this mission were set at creation." />}
@@ -457,6 +463,7 @@ function MissionTabBody({ tab, detail: d, navigate, openTab, vp }) {
 
   if (tab === "Evidence") return <MissionEvidence missionId={m.id} propertyId={m.propertyId} navigate={navigate} />;
   if (tab === "Cortex") return <MissionCortex missionId={m.id} propertyId={m.propertyId} navigate={navigate} vp={vp} />;
+  if (tab === "See") return <CortexSeePage missionId={m.id} propertyId={m.propertyId} navigate={navigate} inline />;
 
   if (tab === "Processing")
     return (
@@ -476,22 +483,7 @@ function MissionTabBody({ tab, detail: d, navigate, openTab, vp }) {
     );
 
   if (tab === "Passport")
-    return (
-      <Panel>
-        <PanelHeader title="Passport Sync" />
-        <ModuleIntro purpose="A mission contributes to the property record; it never becomes the record. Passport remains canonical." />
-        <div style={{ display: "grid", gridTemplateColumns: facts(3), gap: 12 }}>
-          <Fact label="Sync State" value={m.passportState} tone={m.passportState === "SYNCED" ? "ok" : m.passportState === "CONFLICT" ? "warn" : undefined} />
-          <Fact label="Property" value={m.propertyId} mono />
-          <Fact label="Cortex State" value={m.cortexState} />
-        </div>
-        <div style={{ marginTop: 14 }}>
-          <GhostButton small onClick={() => navigate(ROUTES.property(m.propertyId, "passport"))}>
-            Open the property's Passport record
-          </GhostButton>
-        </div>
-      </Panel>
-    );
+    return <MissionPassport m={m} facts={facts} navigate={navigate} />;
 
   if (tab === "Reports")
     return (
@@ -669,6 +661,51 @@ function MissionEvidence({ missionId, propertyId, navigate }) {
   );
 }
 
+
+function MissionPassport({ m, facts, navigate }) {
+  const res = useResource(() => centcomApi.getPassport(m.propertyId), [m.propertyId]);
+  return (
+    <Panel>
+      <PanelHeader title="Passport Sync" />
+      <ModuleIntro purpose="A mission contributes to the property record; it never becomes the record. Passport remains canonical." />
+      <div style={{ display: "grid", gridTemplateColumns: facts(3), gap: 12 }}>
+        <Fact label="Sync State" value={m.passportState} tone={m.passportState === "SYNCED" ? "ok" : m.passportState === "CONFLICT" ? "warn" : undefined} />
+        <Fact label="Property" value={m.propertyId} mono />
+        <Fact label="Cortex State" value={m.cortexState} />
+      </div>
+      <Resource res={res} loadingLines={3} label="Reading committed See versions">
+        {(passport) => {
+          const rows = (passport.seeFindings || []).filter((f) => f.missionId === m.id);
+          return (
+            <div style={{ marginTop: 16 }}>
+              <PanelHeader title="Committed See findings" />
+              {!rows.length ? (
+                <EmptyState title="No committed See version" hint="Save stays on Cortex. Commit See writes Passport version N+1. Nothing is here until that door is used." />
+              ) : (
+                <DataTable
+                  keyOf={(r) => r.findingId}
+                  primary="label"
+                  rows={rows}
+                  columns={[
+                    { key: "findingId", header: "Finding", render: (r) => <span style={{ fontFamily: T.font.mono }}>{r.findingId}</span> },
+                    { key: "label", header: "Label", wrap: true, render: (r) => r.label },
+                    { key: "treatment", header: "Treatment", render: (r) => r.treatment },
+                    { key: "passportVersionId", header: "Version", render: (r) => <span style={{ fontFamily: T.font.mono }}>{r.passportVersionId}</span> },
+                  ]}
+                />
+              )}
+            </div>
+          );
+        }}
+      </Resource>
+      <div style={{ marginTop: 14 }}>
+        <GhostButton small onClick={() => navigate(ROUTES.property(m.propertyId, "passport"))}>
+          Open the property's Passport record
+        </GhostButton>
+      </div>
+    </Panel>
+  );
+}
 
 function MissionCortex({ missionId, propertyId, navigate, vp }) {
   const res = useResource(() => centcomApi.listAnalyses(propertyId), [propertyId]);

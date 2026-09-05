@@ -10,8 +10,12 @@ const SUITES = [
   ["Evidence Vault", "src/domains/evidence/evidence.test.mjs"],
   ["Property Reality", "src/domains/reality/reality.test.mjs"],
   ["Cortex", "src/domains/cortex/cortex.test.mjs"],
+  ["Cortex See", "src/domains/cortex/cortex-see.test.mjs"],
+  ["Ops Board / Day Map", "src/domains/ops/ops.test.mjs"],
   ["Passport", "src/domains/passport/passport.test.mjs"],
   ["Property Isolation", "src/domains/isolation.test.mjs"],
+  ["Core Packet", "src/domains/reports/packet.test.mjs"],
+  ["Report Kit", "src/components/report/packet/report-kit.test.mjs"],
 ];
 
 let failed = 0;

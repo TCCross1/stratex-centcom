@@ -2,9 +2,11 @@ import React, { useState, useEffect, useMemo } from "react";
 import { NAV } from "../../app/router/routes.js";
 import T from "../../design/tokens.js";
 import centcomApi from "../../domains/index.js";
+import { headerWeatherRoute } from "../../domains/ops/calendar.js";
 import { useResource, useTick, useViewport } from "../../app/hooks.js";
 import { CentcomLockup, HexShell } from "../brand/StratexBrand.jsx";
 import { Label, MetalText, StatusDot } from "../common/primitives.jsx";
+import { SourceBadge } from "../atc/AtcShared.jsx";
 
 export function NavGlyph({ glyph, active }) {
   const c = active ? T.color.blueBright : T.color.textMute;
@@ -266,10 +268,48 @@ export const BarDivider = () => (
   <span style={{ width: 1, height: 42, background: "linear-gradient(180deg,transparent,rgba(30,107,255,0.35),transparent)" }} />
 );
 
+function weatherIconPath(icon) {
+  if (icon === "storm") return "M7 16h9a4 4 0 000-8 6 6 0 00-11.3 2.2A3.5 3.5 0 005 16zM12 16v4M9 20h6";
+  if (icon === "rain") return "M7 15h9a4 4 0 000-8 6 6 0 00-11.3 2.2A3.5 3.5 0 005 15zM8 18v2M12 18v2M16 18v2";
+  if (icon === "sun") return "M12 6.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM12 2v2M12 20v2M2 12h2M20 12h2";
+  return "M7 18h9a4 4 0 000-8 6 6 0 00-11.3 2.2A3.5 3.5 0 005 18z";
+}
+
+function HeaderWeather({ navigate }) {
+  const wx = useResource(() => centcomApi.getCityWeatherSnapshot("lexington"), []);
+  const snap = wx.data;
+  const unavailable = !snap || snap.unavailable;
+  return (
+    <button
+      type="button"
+      onClick={() => navigate(headerWeatherRoute(snap?.city || "Lexington"))}
+      aria-label="Open ATC day map for Lexington"
+      title="ATC Day Map"
+      style={{
+        display: "flex", alignItems: "center", gap: 10, background: "transparent",
+        border: "1px solid " + T.color.edge, borderRadius: T.radius.md, cursor: "pointer",
+        padding: "4px 10px", color: T.color.text,
+      }}
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <path d={weatherIconPath(unavailable ? null : snap.icon)} fill="none" stroke={T.color.blueBright} strokeWidth="1.5" />
+      </svg>
+      <div style={{ textAlign: "left" }}>
+        <div style={{ fontFamily: T.font.display, fontSize: 10, letterSpacing: "0.12em", color: T.color.textSoft }}>
+          {snap?.cityLabel || "LEX, KY"}
+        </div>
+        <div style={{ fontFamily: T.font.display, fontSize: 15, fontWeight: 700, color: unavailable ? T.color.warn : T.color.text }}>
+          {unavailable ? "UNAVAILABLE" : snap.tempF + "°F"}
+        </div>
+      </div>
+      <SourceBadge mode={snap?.mode} isLive={snap?.isLive} />
+    </button>
+  );
+}
+
 export function CommandBar({ session, navigate, onMenu }) {
   useTick(1000);
   const vp = useViewport();
-  const conditions = useResource(() => centcomApi.getConditions(), []);
   const alerts = useResource(() => centcomApi.getAlerts(), []);
   const t = new Date();
   const urgent = alerts.data ? alerts.data.filter((a) => a.severity !== "low").length : 0;
@@ -306,6 +346,7 @@ export function CommandBar({ session, navigate, onMenu }) {
         <span style={{ fontFamily: T.font.mono, fontSize: 12, color: T.color.textSoft, flex: "none" }}>
           {t.toTimeString().slice(0, 5)}
         </span>
+        <HeaderWeather navigate={navigate} />
         <AlertBell count={urgent} onClick={() => navigate("/centcom")} />
         <div
           title={session.role}
@@ -351,25 +392,8 @@ export function CommandBar({ session, navigate, onMenu }) {
       >
         {vp.isTablet ? "" : "Mission Control for Residential Property Intelligence"}
       </div>
-
-      {!vp.isTablet && <BarDivider />}
-
-      {!vp.isTablet && (
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7 18h9a4 4 0 000-8 6 6 0 00-11.3 2.2A3.5 3.5 0 005 18z" fill="none" stroke={T.color.blueBright} strokeWidth="1.5" />
-          </svg>
-          <div>
-            <div style={{ fontFamily: T.font.body, fontSize: 10.5, color: T.color.textSoft, letterSpacing: "0.05em" }}>
-              {conditions.data?.city || "—"}
-            </div>
-            <div style={{ fontFamily: T.font.display, fontSize: 15, fontWeight: 700, color: T.color.text }}>
-              {conditions.data ? conditions.data.tempF + "°F" : "—"}
-            </div>
-          </div>
-        </div>
-      )}
-
+      <BarDivider />
+      <HeaderWeather navigate={navigate} />
       <BarDivider />
 
       <div style={{ textAlign: "center" }}>

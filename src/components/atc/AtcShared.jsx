@@ -63,9 +63,10 @@ export function AtcStatePill({ state, small }) {
 /** Provider source badge. Says FIXTURE when it is a fixture. Never says LIVE
  *  unless the payload actually came from a live provider. */
 export function SourceBadge({ mode, isLive }) {
-  const live = isLive === true;
-  const color = live ? T.color.ok : mode === "DISCONNECTED" ? T.color.high : T.color.blueBright;
-  const label = live ? "LIVE" : mode === "DISCONNECTED" ? "NO PROVIDER" : "FIXTURE";
+  const live = isLive === true || mode === "LIVE" || mode === "CONNECTED";
+  const disconnected = mode === "DISCONNECTED";
+  const color = live ? T.color.ok : disconnected ? T.color.high : T.color.blueBright;
+  const label = live ? "LIVE" : disconnected ? "DISCONNECTED" : "FIXTURE";
   return (
     <span
       style={{

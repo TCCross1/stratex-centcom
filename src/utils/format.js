@@ -26,6 +26,26 @@ export function shortDate(isoStr) {
   });
 }
 
+/** Operator-local clock for a stored window. Never slice UTC out of the ISO string. */
+export function localClock(isoStr) {
+  if (!isoStr) return "—";
+  const d = new Date(isoStr);
+  if (Number.isNaN(d.getTime())) return "—";
+  return d.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false });
+}
+
+/** Value for <input type="datetime-local"> from a stored ISO timestamp. */
+export function localDateTimeValue(isoStr) {
+  if (!isoStr) return "";
+  const d = new Date(isoStr);
+  if (Number.isNaN(d.getTime())) return String(isoStr).slice(0, 16);
+  const pad = (n) => String(n).padStart(2, "0");
+  return (
+    d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) +
+    "T" + pad(d.getHours()) + ":" + pad(d.getMinutes())
+  );
+}
+
 export const bytesToMb = (bytes) => (bytes / 1048576).toFixed(1) + " MB";
 
 /** Truncate a hash for display. Full hashes are only shown on request. */

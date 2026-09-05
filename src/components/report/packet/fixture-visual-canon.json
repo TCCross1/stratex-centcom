@@ -1,0 +1,37 @@
+{
+  "sourceMode": "VISUAL_CANON",
+  "banner": "VISUAL CANON FIXTURE — NOT PROPERTY TRUTH",
+  "propertyId": null,
+  "reportId": "STRX-CANON-LAYOUT",
+  "identity": {
+    "propertyId": "LAYOUT-ONLY",
+    "addressLine1": "Visual canon artboard",
+    "cityLine": "Not a property",
+    "addressFull": "Visual canon artboard — not a property",
+    "passportId": "PP-LAYOUT",
+    "revision": "r00",
+    "twinVersion": "—"
+  },
+  "ticker": {
+    "roofAreaSqFt": null,
+    "ridgeLf": null,
+    "eaveLf": null,
+    "southPitch": null,
+    "source": null
+  },
+  "openings": {
+    "windows": [
+      { "id": "W-01", "name": "Layout slot", "zone": "—", "value": null, "unit": "in" }
+    ],
+    "doors": []
+  },
+  "awe": {
+    "air": { "dimension": "AIR", "status": "Layout", "score": null, "scoreIsFixture": true, "summary": "Canon layout only." },
+    "water": { "dimension": "WATER", "status": "Layout", "score": null, "scoreIsFixture": true, "summary": "Canon layout only." },
+    "energy": { "dimension": "ENERGY", "status": "Layout", "score": null, "scoreIsFixture": true, "summary": "Canon layout only." }
+  },
+  "estimate": { "available": false, "reason": "Visual canon has no EstimateRevision.", "materials": null, "labor": null, "tax": null, "total": null, "lines": [] },
+  "operator": { "name": "LAYOUT", "certId": "—", "role": "—" },
+  "nextScanLabel": "—",
+  "nextScanDetail": "Layout fixture."
+}

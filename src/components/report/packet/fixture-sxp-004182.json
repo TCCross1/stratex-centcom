@@ -1,0 +1,25 @@
+{
+  "sourceMode": "FIXTURE",
+  "banner": "FIXTURE — Passport / Twin A geometry for SXP-004182. Not a Core PDF.",
+  "propertyId": "SXP-004182",
+  "reportId": "RG-A182-2",
+  "identity": {
+    "propertyId": "SXP-004182",
+    "addressLine1": "1234 Bridlewood Way",
+    "cityLine": "Lexington, KY 40509",
+    "addressFull": "1234 Bridlewood Way, Lexington, KY 40509",
+    "passportId": "PP-SXP-004182",
+    "revision": "r14",
+    "twinVersion": "V3"
+  },
+  "ticker": {
+    "roofAreaSqFt": 2856,
+    "ridgeLf": 86,
+    "eaveLf": 168,
+    "southPitch": 6.5,
+    "source": "RG-A182-2"
+  },
+  "operator": { "name": "Tony Cross", "certId": "CENTCOM-01", "role": "ADMIN" },
+  "nextScanLabel": "NOT SCHEDULED",
+  "nextScanDetail": "No authorized follow-on mission on the board."
+}

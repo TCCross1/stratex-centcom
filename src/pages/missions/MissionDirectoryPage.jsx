@@ -68,6 +68,7 @@ export function MissionCommand({ navigate }) {
           title="Mission Command"
           action={
             <>
+            <GhostButton small onClick={() => navigate(ROUTES.board)}>Board</GhostButton>
             <GhostButton small accent="gold" onClick={() => navigate(ROUTES.missionCreate())}>+ Create Mission</GhostButton>
             
             <select
@@ -132,7 +133,8 @@ export function MissionCommand({ navigate }) {
                   onRowClick={(r) => navigate(ROUTES.mission(r.id))}
                   rows={filtered}
                   columns={[
-                    { key: "id", header: "Mission", render: (r) => <span style={{ fontFamily: T.font.mono, color: T.color.bluePale }}>{r.id}</span> },
+                    { key: "jobNumber", header: "Job", render: (r) => <span style={{ fontFamily: T.font.mono, color: T.color.bluePale }}>{r.jobNumber || r.id}</span> },
+                    { key: "id", header: "Mission", render: (r) => <span style={{ fontFamily: T.font.mono, fontSize: 10 }}>{r.id}</span> },
                     { key: "property", header: "Property", render: (r) => <span style={{ fontFamily: T.font.mono, fontSize: 10 }}>{r.propertyId}</span> },
                     { key: "origin", header: "Origin", render: (r) => r.originType.replace(/_/g, " ") },
                     { key: "objective", header: "Objective", render: (r) => r.assessmentObjective.replace(/_/g, " ") },

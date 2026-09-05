@@ -1,6 +1,7 @@
 import { serve } from "../shared/transport.js";
 import { TRUTH_CLASS } from "../shared/classification.js";
 import { passportRecord as fixturePassportRecord } from "./fixtures.js";
+import { listSeeVersions } from "./see-versions.js";
 import {
   PASSPORT_STATUS,
   PASSPORT_REVISION_STATE,
@@ -180,7 +181,15 @@ export const PassportService = {
     const ingestions = [createPassportIngestionRequest({ propertyId: safePropertyId, candidateManifestId: "PCM-SXP-004182-001", baseRevisionId: revisionA.revisionId, status: PASSPORT_INGESTION_STATE.BLOCKED, warnings: ["MISSING_LINEAGE"], conflictCount: 1, proposedChangeSetId: "PCS-1" }), createPassportIngestionRequest({ propertyId: safePropertyId, candidateManifestId: "PCM-SXP-004182-002", baseRevisionId: revisionB.revisionId, status: PASSPORT_INGESTION_STATE.READY_FOR_REVIEW, warnings: [], conflictCount: 0, proposedChangeSetId: "PCS-2" })];
     const alerts = [{ alertId: "AL-1", alertType: PASSPORT_ALERT_TYPE.INGESTION_BLOCKED, propertyId: safePropertyId, route: `/passport/${safePropertyId}/ingestions/${ingestions[0].ingestionId}`, severity: "high", createdAt: new Date().toISOString(), summary: "Candidate ingestion blocked", reason: "MISSING_LINEAGE", sourceEntity: "PCM-SXP-004182-001", deepLink: `/passport/${safePropertyId}/ingestions/${ingestions[0].ingestionId}`, status: "OPEN" }, { alertId: "AL-2", alertType: PASSPORT_ALERT_TYPE.CONFLICT_CREATED, propertyId: safePropertyId, route: `/passport/${safePropertyId}/conflicts/${conflicts[0].conflictId}`, severity: "medium", createdAt: new Date().toISOString(), summary: "Condition conflict requires governance", reason: "Candidate conflicts with accepted state", sourceEntity: conflicts[0].conflictId, deepLink: `/passport/${safePropertyId}/conflicts/${conflicts[0].conflictId}`, status: "OPEN" }, { alertId: "AL-3", alertType: PASSPORT_ALERT_TYPE.REVIEW_REQUIRED, propertyId: safePropertyId, route: `/passport/${safePropertyId}/revisions/${revisionB.revisionId}`, severity: "medium", createdAt: new Date().toISOString(), summary: "Truth review required", reason: "Probable classification needs review", sourceEntity: revisionB.revisionId, deepLink: `/passport/${safePropertyId}/revisions/${revisionB.revisionId}`, status: "OPEN" }];
     const systemsHealth = [{ name: "Passport Service", status: "HEALTHY", count: 1, reason: "Service synced", lastEvaluated: new Date().toISOString(), affected: [safePropertyId] }, { name: "Revision Queue", status: "ATTENTION", count: 1, reason: "Review required", lastEvaluated: new Date().toISOString(), affected: [safePropertyId] }, { name: "Ingestion Queue", status: "BLOCKED", count: 1, reason: "Blocked candidate", lastEvaluated: new Date().toISOString(), affected: [safePropertyId] }, { name: "Conflict Backlog", status: "ATTENTION", count: 1, reason: "Open conflict", lastEvaluated: new Date().toISOString(), affected: [safePropertyId] }, { name: "Projection Health", status: "HEALTHY", count: 4, reason: "All projections generated", lastEvaluated: new Date().toISOString(), affected: [safePropertyId] }, { name: "Integrity Warnings", status: "WARNING", count: 1, reason: "Integrity warning present", lastEvaluated: new Date().toISOString(), affected: [safePropertyId] }, { name: "Hash-Chain State", status: "HEALTHY", count: 2, reason: "Revision hash chain intact", lastEvaluated: new Date().toISOString(), affected: [safePropertyId] }, { name: "Orphan References", status: "HEALTHY", count: 0, reason: "No orphan references", lastEvaluated: new Date().toISOString(), affected: [safePropertyId] }, { name: "Broken Source References", status: "WARNING", count: 1, reason: "Bad source lineage", lastEvaluated: new Date().toISOString(), affected: [safePropertyId] }];
-    const projectedCurrent = rebuildCurrentProjection({ propertyId: safePropertyId, revisions: [revisionA, revisionB], currentRevisionId: revisionB.revisionId, currentState: { propertyIdentity: { propertyId: safePropertyId }, activeConditions: conditions.length, ownershipState: "CURRENT", twinCoverage: 3 } });
+    const seeVersions = listSeeVersions(safePropertyId);
+    const revisions = [revisionA, revisionB, ...seeVersions];
+    const head = revisions.at(-1);
+    const seeFindings = seeVersions.flatMap((rev) => (rev.content?.seeFindings || []).map((finding) => ({
+      ...finding,
+      passportVersionId: rev.revisionId,
+      committedToPassport: true,
+    })));
+    const projectedCurrent = rebuildCurrentProjection({ propertyId: safePropertyId, revisions, currentRevisionId: head.revisionId, currentState: { propertyIdentity: { propertyId: safePropertyId }, activeConditions: conditions.length, ownershipState: "CURRENT", twinCoverage: 3, seeFindings } });
     const history = {
       ownership,
       components: [createPassportComponent({ componentId: `COMP-${safePropertyId}-ROOF-01`, propertyId: safePropertyId, componentType: PASSPORT_COMPONENT_TYPE.ROOF, name: "Roof assembly", status: PASSPORT_COMPONENT_LIFECYCLE.ACTIVE, createdRevisionId: revisionB.revisionId, currentRevisionId: revisionB.revisionId })],
@@ -195,8 +204,9 @@ export const PassportService = {
       ...record,
       propertyId: safePropertyId,
       passportId: `PP-${safePropertyId}`,
-      currentRevision: revisionB.revisionId,
-      currentRevisionId: revisionB.revisionId,
+      currentRevision: head.revisionId,
+      currentRevisionId: head.revisionId,
+      seeFindings,
       integrity: history.integrity.status,
       integrityState: history.integrity.status,
       status: PASSPORT_STATUS.ACTIVE,
@@ -212,7 +222,7 @@ export const PassportService = {
       ingestions,
       alerts,
       systemsHealth,
-      revisions: [revisionA, revisionB],
+      revisions,
       projections: { core: "synced", pro: "synced", habitat: "synced", report: "synced" },
       currentProjection: projectedCurrent,
       currentState: { propertyIdentity: { propertyId: safePropertyId }, activeConditions: conditions.length, ownershipState: "CURRENT", twinCoverage: 3 },

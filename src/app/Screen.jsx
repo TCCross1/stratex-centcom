@@ -29,9 +29,13 @@ import { FindingDetail } from "../pages/findings/FindingDetailPage.jsx";
 import { MissionCommand } from "../pages/missions/MissionDirectoryPage.jsx";
 import { MissionDetail } from "../pages/missions/MissionDetailPage.jsx";
 import { CreateMission } from "../pages/missions/CreateMissionPage.jsx";
+import { MissionBoard } from "../pages/missions/MissionBoardPage.jsx";
+import { AtcDayMap } from "../pages/atc/AtcDayMapPage.jsx";
 import { PropertyCommand } from "../pages/properties/PropertyDetailPage.jsx";
 import { PropertyDirectory } from "../pages/properties/PropertyDirectoryPage.jsx";
 import { PassportCommand } from "../pages/passport/PassportCommandPage.jsx";
+import { CortexSeePage } from "../pages/cortex/CortexSeePage.jsx";
+import { ReportsCommand } from "../pages/reports/ReportsCommandPage.jsx";
 
 export function Screen({ route, navigate, session }) {
   const [, seg1, seg2] = route.split("/");
@@ -42,9 +46,12 @@ export function Screen({ route, navigate, session }) {
     const preset = (route.split("?")[1] || "").replace("property=", "") || null;
     return <CreateMission navigate={navigate} presetPropertyId={preset} />;
   }
+  if (seg1 === "missions" && seg2 && route.split("/")[3] === "see")
+    return <CortexSeePage missionId={seg2} navigate={navigate} />;
   if (seg1 === "missions" && seg2)
     return <MissionDetail missionId={seg2} tabSlug={route.split("/")[3]} navigate={navigate} />;
   if (seg1 === "missions") return <ModuleShell title="MISSION COMMAND"><MissionCommand navigate={navigate} /></ModuleShell>;
+  if (seg1 === "board") return <ModuleShell title="MISSION BOARD"><MissionBoard route={route} navigate={navigate} /></ModuleShell>;
   if (seg1 === "properties" && seg2) {
     const seg3 = route.split("/")[3];
     return <PropertyCommand propertyId={seg2} tabSlug={seg3} navigate={navigate} session={session} />;
@@ -63,6 +70,8 @@ export function Screen({ route, navigate, session }) {
   }
   if (seg1 === "reality")
     return <ModuleShell title="PROPERTY REALITY"><RealityCommand navigate={navigate} /></ModuleShell>;
+  if (seg1 === "atc" && seg2 === "day")
+    return <ModuleShell title="ATC DAY MAP"><AtcDayMap route={route} navigate={navigate} /></ModuleShell>;
   if (seg1 === "atc" && seg2 === "missions" && route.split("/")[3])
     return (
       <AtcMissionDetail
@@ -123,20 +132,7 @@ export function Screen({ route, navigate, session }) {
         <HabitatOversight />
       </ModuleShell>
     );
-  if (seg1 === "reports")
-    return (
-      <ModuleShell title="REPORTS">
-        <Panel>
-          <PanelHeader title="Intelligence Outputs" />
-          <ModuleIntro purpose="Reports are generated from committed Passport revisions, never from raw evidence. Each output records the twin version, analysis version and evidence references it was built from, so any figure in a delivered report can be traced back to the capture that produced it." />
-          <EmptyState
-            title="No report source connected"
-            hint="Report generation runs in the Core work engine. Once that service is connected, generated and delivered outputs list here with their source revision."
-            action={<GhostButton onClick={() => navigate("/core")}>Check Core service health</GhostButton>}
-          />
-        </Panel>
-      </ModuleShell>
-    );
+  if (seg1 === "reports") return <ReportsCommand navigate={navigate} session={session} />;
   if (seg1 === "operations")
     return (
       <ModuleShell title="BUSINESS OPERATIONS">

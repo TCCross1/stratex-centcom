@@ -61,7 +61,10 @@ export function AtcCommand({ navigate }) {
       </Resource>
 
       <Panel>
-        <PanelHeader title="Provider Status" />
+        <PanelHeader
+          title="Provider Status"
+          action={<GhostButton small onClick={() => navigate(ROUTES.atcDay)}>Day Map</GhostButton>}
+        />
         <ModuleIntro purpose="ATC depends on outside systems for weather, airspace, telemetry and launch authorization. None are connected. A fixture provider is not a healthy provider, and this table says so rather than showing green." />
         <Resource res={providers} loadingLines={2}>
           {(rows) => (
@@ -81,7 +84,10 @@ export function AtcCommand({ navigate }) {
       </Panel>
 
       <Panel>
-        <PanelHeader title="ATC Mission Queue" />
+        <PanelHeader
+          title="ATC Mission Queue"
+          action={<GhostButton small onClick={() => navigate(ROUTES.atcDay)}>Day Map</GhostButton>}
+        />
         <div style={{ display: "flex", gap: 5, flexWrap: "wrap", marginBottom: 14 }}>
           {Object.keys(ATC_FILTERS).map((k) => {
             const on = k === filter;

@@ -11,41 +11,46 @@
  *   Absence of data is UNKNOWN or PROVIDER_UNAVAILABLE — never PASS, never CLEAR.
  */
 import { serve } from "../shared/transport.js";
+import { PROVIDER_MODE, isLive, stamp } from "./providers-core.js";
+import { FleetProvider } from "./fleet.js";
+import {
+  LEXINGTON_KY,
+  getCityWeatherSnapshot,
+  getDailyForecast,
+  getHourlyForecast,
+  getRadar,
+  getWeatherMode,
+  setWeatherMode,
+} from "./weather.js";
 
-export const PROVIDER_MODE = {
-  CONNECTED: "CONNECTED",
-  DISCONNECTED: "DISCONNECTED",
-  DEGRADED: "DEGRADED",
-  FIXTURE: "FIXTURE",
-  ERROR: "ERROR",
-};
-
-/** True only for a real, live upstream. FIXTURE is never live. */
-export const isLive = (mode) => mode === PROVIDER_MODE.CONNECTED;
-
-/** Every provider payload carries this envelope. No exceptions. */
-export const stamp = (mode, payload) => ({
-  ...payload,
-  providerMode: mode,
-  dataSource: mode === PROVIDER_MODE.FIXTURE ? "FIXTURE" : mode,
-  isLive: isLive(mode),
-  retrievedAt: new Date().toISOString(),
-});
+export { PROVIDER_MODE, isLive, stamp } from "./providers-core.js";
+export { LEXINGTON_KY, getCityWeatherSnapshot } from "./weather.js";
+export { FleetProvider } from "./fleet.js";
 
 /* ------------------------------------------------------------- weather --- */
 
 export const WeatherProvider = {
   name: "WeatherProvider",
-  mode: PROVIDER_MODE.FIXTURE,
-  vendor: "development fixture",
+  vendor: "NWS / development fixture",
+  get mode() {
+    return getWeatherMode();
+  },
+  set mode(value) {
+    setWeatherMode(value);
+  },
 
-  /** @returns {Promise<WeatherSnapshot>} */
+  /** Mission readiness snapshot (separate from the city ops snapshot). */
   getSnapshot: (missionId, propertyId, fixture) =>
     serve(() => {
       if (WeatherProvider.mode === PROVIDER_MODE.DISCONNECTED)
-        return stamp(PROVIDER_MODE.DISCONNECTED, { snapshotId: null, unavailable: true });
+        return stamp(PROVIDER_MODE.DISCONNECTED, { snapshotId: null, unavailable: true, label: "FORECAST UNAVAILABLE" });
       return stamp(WeatherProvider.mode, fixture);
     }),
+
+  getCityWeatherSnapshot,
+  getDailyForecast,
+  getHourlyForecast,
+  getRadar,
 };
 
 /* ------------------------------------------------------------ airspace --- */
@@ -145,7 +150,7 @@ export const SensorProvider = {
 
 export const ALL_PROVIDERS = [
   WeatherProvider, AirspaceProvider, FlightProvider,
-  AircraftTelemetryProvider, SensorProvider,
+  AircraftTelemetryProvider, SensorProvider, FleetProvider,
 ];
 
 /** Health for Systems Command. A fixture provider is never reported healthy. */

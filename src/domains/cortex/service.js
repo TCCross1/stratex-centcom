@@ -11,6 +11,9 @@
 import { analyses as legacyAnalyses, findings as legacyFindings, predictions as legacyPredictions, goldCandidates as legacyGoldCandidates } from "./fixtures.js";
 import { serve } from "../shared/transport.js";
 import { TRUTH_CLASS, REVIEW_STATE } from "../shared/classification.js";
+import { FINDING_TREATMENT, validateSeeDraft, createSeeFinding, commitSeeToPassport } from "./see.js";
+
+export { FINDING_TREATMENT };
 
 export const MODEL_TASK_TYPES = {
   ANOMALY_DETECTION: "ANOMALY_DETECTION",
@@ -626,6 +629,9 @@ export const predictions = runtimePredictions;
 export const goldCandidates = runtimeGoldCandidates;
 
 export const CortexService = {
+  validateSeeDraft,
+  createSeeFinding: (draft) => createSeeFinding(draft, runtimeFindings),
+  commitSeeToPassport: (target) => commitSeeToPassport(target, runtimeFindings),
   listAnalyses: () => serve(() => runtimeAnalyses),
   listAnalysesByProperty: (propertyId) =>
     serve(() => runtimeAnalyses.filter((a) => a.propertyId === propertyId)),

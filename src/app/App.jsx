@@ -87,13 +87,17 @@ export default function StratexCentcom() {
           </div>
         ) : (
           <>
+            <div className="sx-no-print">
             <CommandBar
               session={sessionRes.data}
               navigate={navigate}
               onMenu={() => setNavOpen(true)}
             />
+            </div>
             <div style={{ flex: 1, display: "flex", minHeight: 0, paddingTop: vp.isPhone ? 10 : 12 }}>
+              <div className="sx-no-print" style={{ display: "contents" }}>
               <SideNav route={route} navigate={navigate} open={navOpen} onClose={closeNav} />
+              </div>
               <main
                 ref={mainRef}
                 style={{
@@ -106,6 +110,7 @@ export default function StratexCentcom() {
               >
                 <div
                   aria-hidden="true"
+                  className="sx-no-print"
                   style={{
                     position: "absolute",
                     inset: 0,
@@ -127,7 +132,9 @@ export default function StratexCentcom() {
                 </div>
               </main>
             </div>
+            <div className="sx-no-print">
             <StatusBar />
+            </div>
           </>
         )}
       </div>

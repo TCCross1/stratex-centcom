@@ -23,11 +23,14 @@ import CoreAdapter from "./core/adapter.js";
 import ProAdapter from "./pro/adapter.js";
 import HabitatAdapter from "./habitat/adapter.js";
 import CoreReportAdapter from "./reports/service.js";
+import ReportPacketService from "./reports/packet-service.js";
 import EvidenceVault from "./evidence/vault.js";
 import RealityEngine from "./reality/service.js";
 import RealityProjections from "./reality/projections.js";
 import AtcCommandService, { LIVE_STATE, LAUNCH_STATE, HOLD_REASONS } from "./atc/service.js";
-import { providerHealth } from "./atc/providers.js";
+import BoardService from "./ops/board.js";
+import AtcDayMapService from "./ops/day-map.js";
+import { providerHealth, getCityWeatherSnapshot } from "./atc/providers.js";
 import MeasurementService from "./measurements/service.js";
 import AweService from "./awe/service.js";
 import { ProjectService, RepairService, MaintenanceService, DocumentService } from "./work/service.js";
@@ -68,6 +71,11 @@ export const centcomApi = {
     propertyId ? MissionService.listByProperty(propertyId) : MissionService.listAll(),
   getMission: (id) => MissionService.get(id),
   createMission: (draft, actor) => MissionService.create(draft, actor),
+  updateMission: (id, patch, opts) => MissionService.update(id, patch, opts),
+  rescheduleMission: (id, window) => MissionService.reschedule(id, window),
+  removeMission: (id, opts) => MissionService.remove(id, opts),
+  createProperty: (input) => PropertyService.create(input),
+  updatePropertyIdentity: (id, identity) => PropertyService.updateIdentity(id, identity),
   validateMissionDraft: (draft) => MissionService.validateDraft(draft),
   getMissionDetail: (id) => MissionService.getDetail(id),
   getMissionSummary: () => MissionService.getCommandSummary(),
@@ -130,6 +138,8 @@ export const centcomApi = {
     return rows;
   },
   getFinding: (id) => CortexService.getFinding(id),
+  createSeeFinding: (draft) => CortexService.createSeeFinding(draft),
+  commitSeeToPassport: (target) => CortexService.commitSeeToPassport(target),
   getCortexSummary: () => CortexService.getCommandSummary(),
   listPredictions: (propertyId) =>
     propertyId
@@ -184,6 +194,9 @@ export const centcomApi = {
   listAtcEvents: (missionId) => AtcCommandService.listEvents(missionId),
   listAtcAudit: (missionId) => AtcCommandService.listAudit(missionId),
   getProviderHealth: () => AtcCommandService.providerHealth(),
+  getMissionBoard: (opts) => BoardService.getMonth(opts),
+  getAtcDayMap: (opts) => AtcDayMapService.getDay(opts),
+  getCityWeatherSnapshot: (cityId) => getCityWeatherSnapshot(cityId),
 
   // evidence vault — originals immutable, custody append-only
   vaultSummary: () => EvidenceVault.getVaultSummary(),
@@ -241,6 +254,7 @@ export const centcomApi = {
 
   // reports
   listReportJobs: () => CoreReportAdapter.listReportJobs(),
+  getReportPacket: (propertyId, opts) => ReportPacketService.getForProperty(propertyId, opts),
 };
 
 export {
@@ -251,7 +265,7 @@ export {
   MaintenanceService, DocumentService,
   PropertyService, MissionService, EvidenceService, CortexService,
   PassportService, SharingService, TimelineService, AuditService, AtcService,
-  CoreAdapter, ProAdapter, HabitatAdapter, CoreReportAdapter, FlightProvider,
+  CoreAdapter, ProAdapter, HabitatAdapter, CoreReportAdapter, ReportPacketService, FlightProvider,
 };
 
 /** Legacy alias kept until the component layer stops referencing it. */

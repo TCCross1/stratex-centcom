@@ -119,6 +119,7 @@ export function CreateMission({ navigate, presetPropertyId }) {
     requestingPartyType: "STRATEX",
     requestingPartyRef: "u-001",
     missionType: "",
+    jobNumber: "",
     assessmentObjective: "",
     requestedPackage: "",
     requestedServices: [],
@@ -162,6 +163,7 @@ export function CreateMission({ navigate, presetPropertyId }) {
         <PanelHeader title="Mission Created" />
         <MetalText size={vp.isPhone ? 20 : 26} track="0.04em">{created.id}</MetalText>
         <div style={{ display: "grid", gridTemplateColumns: vp.isPhone ? "1fr 1fr" : "repeat(4,1fr)", gap: 12, marginTop: 16 }}>
+          <Fact label="Job" value={created.jobNumber || created.id} mono />
           <Fact label="Property" value={created.propertyId} mono />
           <Fact label="State" value={label(created.missionState)} />
           <Fact label="Objective" value={label(created.assessmentObjective)} />
@@ -296,6 +298,10 @@ function StepBody({ step, draft, set, vp, validation }) {
         <Field label="Mission Title" hint="What an operator will see in the queue.">
           <TextInput vp={vp} value={draft.missionType} onChange={(v) => set({ missionType: v })}
             placeholder="Roof Verification Scan" />
+        </Field>
+        <Field label="Job Number" hint="Logged on Board, Mission Command, and ATC Day Map. Leave blank to auto-assign.">
+          <TextInput vp={vp} value={draft.jobNumber} onChange={(v) => set({ jobNumber: v })}
+            placeholder="JOB-4206" />
         </Field>
       </>
     );
@@ -539,6 +545,7 @@ function ReviewStep({ draft, vp, validation }) {
       <ModuleIntro purpose="Everything the operator and ATC will act on. Nothing critical is hidden behind a later screen." />
       <div style={{ display: "grid", gridTemplateColumns: grid, gap: 12 }}>
         <Fact label="Property" value={draft.propertyId || "Not selected"} mono />
+        <Fact label="Job" value={draft.jobNumber || "Auto-assign on create"} mono />
         <Fact label="Origin" value={label(draft.originType)} />
         <Fact label="Requestor" value={draft.requestingPartyRef || "—"} mono />
         <Fact label="Objective" value={draft.assessmentObjective ? label(draft.assessmentObjective) : "Not selected"} />

@@ -111,10 +111,10 @@ export const TileGlyphs = {
 export function EcosystemStrip({ navigate }) {
   const vp = useViewport();
   const NODES = [
-    { key: "core", name: "CORE", role: "The Work", lines: ["Measurement • Takeoff", "Estimating • Reporting"], accent: "blue", action: "Work Engine", route: "/core" },
-    { key: "pro", name: "PRO", role: "The Professional", lines: ["Contractor Operations", "Projects • Proposals"], accent: "blue", action: "Professional App", route: "/pro" },
+    { key: "cortex", name: "CORTEX", role: "The Intelligence", lines: ["AI Analysis • Learning", "Projections • Insights"], accent: "blue", action: "Intelligence Engine", route: "/cortex" },
     { key: "passport", name: "PASSPORT", role: "The Record", lines: ["Canonical Record", "Timeline • Truth"], accent: "blue", action: "System of Record", route: "/passport" },
-    { key: "cortex", name: "CORTEX", role: "The Intelligence", lines: ["AI Analysis • Learning", "Projections • Insights"], accent: "gold", action: "Intelligence Engine", route: "/cortex" },
+    { key: "core", name: "CORE", role: "The Work", lines: ["Measurement • Takeoff", "Estimating • Reporting"], accent: "blue", action: "Work Engine", route: "/core" },
+    { key: "pro", name: "PRO", role: "The Professional", lines: ["Contractor Operations", "Projects • Proposals"], accent: "gold", action: "Professional App", route: "/pro" },
     { key: "habitat", name: "HABITAT", role: "The Relationship", lines: ["Homeowner Experience", "Guidance • Stewardship"], accent: "gold", action: "Homeowner App", route: "/habitat" },
   ];
 
@@ -145,14 +145,23 @@ export function EcosystemStrip({ navigate }) {
       <div
         style={
           vp.isPhone
-            ? { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }
-            : { display: "grid", gridTemplateColumns: "repeat(5, minmax(0,1fr))", gap: 10 }
+            ? { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, alignItems: "stretch", gridAutoRows: "1fr" }
+            : { display: "grid", gridTemplateColumns: "repeat(5, minmax(0,1fr))", gap: 10, alignItems: "stretch", gridAutoRows: "1fr" }
         }
       >
         {NODES.map((n, i) => (
           <React.Fragment key={n.key}>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: vp.isPhone ? 8 : 11 }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                height: "100%",
+                minWidth: 0,
+                minHeight: vp.isPhone ? 220 : 240,
+                justifyContent: "space-between",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: vp.isPhone ? 8 : 11, flex: 1, minHeight: 0 }}>
                 <HexShell id={"eco-" + n.key} size={vp.isPhone ? 40 : 54} glyph={n.key} accent={n.accent} />
                 <div style={{ minWidth: 0 }}>
                   <div
@@ -174,13 +183,14 @@ export function EcosystemStrip({ navigate }) {
                     ))}
                 </div>
               </div>
-              <div style={{ marginTop: 10 }}>
+              <div style={{ marginTop: 10, display: "flex", flex: "none" }}>
                 <button
                   onClick={() => navigate(n.route)}
                   style={{
                     width: "100%", padding: "8px 6px", cursor: "pointer",
-                    minHeight: vp.isPhone ? 40 : undefined, lineHeight: 1.35,
+                    minHeight: vp.isPhone ? 40 : 42, lineHeight: 1.35,
                     WebkitTapHighlightColor: "transparent",
+                    alignSelf: "stretch",
                     background: n.accent === "gold"
                       ? "linear-gradient(180deg,rgba(240,180,41,0.16),rgba(30,20,4,0.85))"
                       : "linear-gradient(180deg,rgba(30,107,255,0.16),rgba(6,14,28,0.85))",

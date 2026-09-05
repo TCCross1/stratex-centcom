@@ -47,6 +47,57 @@ export const T = {
     warn: "#FB923C",
     high: "#EF4444",
     offline: "#5A6B80",
+
+    // Packet instrument stroke — Core report chrome, never hand-rolled in JSX
+    packetStroke: "rgba(30, 107, 255, 0.28)",
+    packetStrokeHot: "rgba(30, 107, 255, 0.55)",
+    packetInner: "rgba(30, 107, 255, 0.22)",
+    rowWash: "rgba(255, 255, 255, 0.03)",
+    thermalViolet: "#6D28D9",
+    thermalMagenta: "#DB2777",
+    thermalOrange: "#FB923C",
+    thermalYellow: "#FEF3C7",
+  },
+
+  /**
+   * Core intelligence packet. 1920×1080 classified instrument panel.
+   * Screens and report renderers consume these; they never invent page chrome.
+   */
+  packet: {
+    artboardW: 1920,
+    artboardH: 1080,
+    headerH: 72,
+    footerH: 86,
+    identityH: 28,
+    gutter: 18,
+    chamberW: 320,
+    pad: 24,
+    innerStroke: "rgba(30, 107, 255, 0.22)",
+    hairline: "rgba(30, 107, 255, 0.28)",
+    icon: 16,
+    kicker: { size: 10, weight: 700, track: "0.16em" },
+    section: { size: 12, weight: 700, track: "0.14em" },
+    tableHead: { size: 9.5, weight: 700, track: "0.14em" },
+    tableCell: { size: 12, weight: 500, track: "0" },
+    heroMoney: { size: 32, weight: 700, track: "0.02em" },
+    type: {
+      brand: { size: 22, weight: 700, track: "0.18em" },
+      tagline: { size: 9.5, weight: 700, track: "0.34em" },
+      title: { size: 18, weight: 700, track: "0.14em" },
+      chamber: { size: 10, weight: 700, track: "0.16em" },
+      identity: { size: 11, weight: 600, track: "0.08em" },
+      cell: { size: 13, weight: 600, track: "0.04em" },
+    },
+    thermal: {
+      cold: "#1E6BFF",
+      mid: "#22C55E",
+      warm: "#F0B429",
+      hot: "#EF4444",
+      violet: "#6D28D9",
+      magenta: "#DB2777",
+      orange: "#FB923C",
+      paleYellow: "#FEF3C7",
+    },
   },
 
   // Metallic surface recipes. Chrome is a gradient, never a flat gray.
@@ -136,10 +187,6 @@ export const T = {
   },
 };
 
-// goldClean is the canonical gold. Keep both names pointing at one recipe so a
-// future change to the gold treatment happens in exactly one place.
-T.metal.goldClean = T.metal.gold;
-
 // goldClean is the canonical gold. Both names point at one recipe so a future
 // change to the gold treatment happens in exactly one place.
 T.metal.goldClean = T.metal.gold;
@@ -150,6 +197,14 @@ export const FONT_IMPORT =
 /** Global stylesheet injected once at app start. Mobile hardening lives here. */
 export const globalCss =
   FONT_IMPORT +
+  "\n.sx-print-only{display:none}" +
+  "\n@media print{" +
+  "@page{size:1920px 1080px landscape;margin:0}" +
+  "html,body{background:" + T.color.abyss + "!important;margin:0!important}" +
+  ".sx-no-print{display:none!important}" +
+  ".sx-print-only{display:block!important}" +
+  ".sx-packet-page{break-after:page;page-break-after:always;box-shadow:none!important;outline:none!important}" +
+  "}" +
   "\n@keyframes sxShimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}" +
   "\n*{box-sizing:border-box}" +
   "\nhtml{-webkit-text-size-adjust:100%;text-size-adjust:100%}" +

@@ -20,6 +20,7 @@ import {
   checkSensorCompatibility, isHardBlocker, stageByKey, isTerminal,
 } from "./lifecycle.js";
 import { serve } from "../shared/transport.js";
+import { localDateKey } from "../ops/calendar.js";
 
 /* ---------------------------------------------------------- provider ----- */
 
@@ -213,6 +214,7 @@ export const MissionService = {
       const mission = {
         ...input,
         id: input.id || nextId("M-NEW"),
+        jobNumber: input.jobNumber || nextId("JOB"),
         missionState: "CREATED",
         authorizationState: input.authorizationState || "NOT_REQUIRED",
         captureState: "NOT_STARTED", evidenceState: "NOT_STARTED",
@@ -224,6 +226,73 @@ export const MissionService = {
       provider.missions.push(mission);
       emit({ mission, action: "MISSION_CREATED", toState: "CREATED", actor, reason: "Mission created." });
       return mission;
+    }),
+
+  update: (missionId, patch = {}, { actor = "u-001" } = {}) =>
+    serve(() => {
+      const m = find(missionId);
+      if (!m) throw new Error("Mission not found.");
+      const allowed = [
+        "missionType", "assessmentObjective", "requestedPackage", "requestedServices",
+        "focusAreas", "knownIssues", "accessNotes", "specialInstructions",
+        "occupancyState", "petGateNotes", "priority", "timeWindowType",
+        "estimatedDurationMinutes", "scheduledStart", "scheduledEnd", "requestedDate",
+        "jobNumber",
+      ];
+      const applied = [];
+      for (const key of allowed) {
+        if (patch[key] !== undefined) {
+          m[key] = patch[key];
+          applied.push(key);
+        }
+      }
+      m.updatedAt = nowIso();
+      emit({
+        mission: m,
+        action: "MISSION_UPDATED",
+        actor,
+        reason: applied.length ? "Updated " + applied.join(", ") : "Mission updated.",
+      });
+      return m;
+    }),
+
+  /** Moves the ops window. Day Map / Board re-route off the new local date. */
+  reschedule: (missionId, { start, end, windowType, actor = "u-001" } = {}) =>
+    serve(() => {
+      const m = find(missionId);
+      if (!m) throw new Error("Mission not found.");
+      if (!start) throw new Error("A new start time is required to reschedule.");
+      const from = m.scheduledStart;
+      m.scheduledStart = start;
+      m.scheduledEnd = end || m.scheduledEnd;
+      if (windowType) m.timeWindowType = windowType;
+      m.requestedDate = localDateKey(start) || String(start).slice(0, 10);
+      m.updatedAt = nowIso();
+      emit({
+        mission: m,
+        action: "MISSION_RESCHEDULED",
+        actor,
+        reason: "Window " + (from || "unset") + " → " + start,
+      });
+      return m;
+    }),
+
+  /** Drops the job from ops routing (map, board, queue). History stays in audit. */
+  remove: (missionId, { actor = "u-001", reason = "Removed from ops routing." } = {}) =>
+    serve(() => {
+      const m = find(missionId);
+      if (!m) throw new Error("Mission not found.");
+      const idx = provider.missions.findIndex((x) => x.id === missionId);
+      if (idx >= 0) provider.missions.splice(idx, 1);
+      emit({
+        mission: m,
+        action: "MISSION_REMOVED",
+        fromState: m.missionState,
+        toState: null,
+        actor,
+        reason,
+      });
+      return { id: missionId, removed: true };
     }),
 
   /** The single write path for state. Refuses illegal moves with a reason. */
